@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ttshiz/swarm_project/build/loop_functions/localization_loop_functions/localization_loop_functions_automoc.cpp
+
+/home/ttshiz/swarm_project/loop_functions/localization_loop_functions/localization_loop_functions.cpp
+localization_loop_functions.h
+/home/ttshiz/swarm_project/loop_functions/localization_loop_functions/localization_loop_functions.h
+argos3/core/simulator/simulator.h
+-
+argos3/core/utility/configuration/argos_configuration.h
+-
+
+/home/ttshiz/swarm_project/loop_functions/localization_loop_functions/localization_loop_functions.h
+argos3/core/simulator/loop_functions.h
+-
+argos3/core/simulator/entity/floor_entity.h
+-
+argos3/core/utility/math/range.h
+-
+
