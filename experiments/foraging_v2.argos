@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+xml version="1.0" ?>
 
 <!-- *************************************************** -->
 <!-- * A fully commented XML is diffusion_1.xml. Refer * -->
@@ -23,41 +23,26 @@
   <!-- *************** -->
   <controllers>
 
-    <footbot_foraging_controller id="ffc"
-                                 library="build/controllers/footbot_foraging/libfootbot_foraging">
+    <buzz_controller_kheperaiv id="obsAvoid">
       <actuators>
-        <differential_steering implementation="default" />
-        <leds implementation="default" medium="leds" />
-        <range_and_bearing implementation="default" />
+	<differential_steering implementation="default" />
+	<leds                  implementation="default" medium="leds" />
+	<range_and_bearing     implementation="default" />
       </actuators>
       <sensors>
-        <footbot_proximity implementation="default" show_rays="false" />
-        <footbot_light implementation="rot_z_only" show_rays="false" />
-        <footbot_motor_ground implementation="rot_z_only" />
-        <range_and_bearing implementation="medium" medium="rab" />
+	<kheperaiv_proximity implementation="default" show_rays="true" />
+	<range_and_bearing   implementation="medium" medium="rab"
+			     show_rays="true" noise_std_dev="0" />
+	<positioning         implementation="default" />
       </sensors>
       <params>
-        <diffusion go_straight_angle_range="-5:5"
-                   delta="0.1" />
-        <wheel_turning hard_turn_angle_threshold="90"
-                       soft_turn_angle_threshold="70"
-                       no_turn_angle_threshold="10"
-                       max_speed="10" />
-        <state initial_rest_to_explore_prob="0.1"
-               initial_explore_to_rest_prob="0.1"
-               food_rule_explore_to_rest_delta_prob="0.01"
-               food_rule_rest_to_explore_delta_prob="0.01"
-               collision_rule_explore_to_rest_delta_prob="0.01"
-               social_rule_explore_to_rest_delta_prob="0.01"
-               social_rule_rest_to_explore_delta_prob="0.01"
-               minimum_resting_time="50"
-               minimum_unsuccessful_explore_time="600"
-               minimum_search_for_place_in_nest_time="50">
-          <food_rule active="true" food_rule_explore_to_rest_delta_prob="0.01" />
-        </state>
+	<wheel_turning hard_turn_angle_threshold="90"
+		       soft_turn_angle_threshold="70"
+		       no_turn_angle_threshold="10"
+		       max_speed="10" />
       </params>
-    </footbot_foraging_controller>
-
+    </buzz_controller_kheperaiv>
+    
   </controllers>
 
   <!-- ****************** -->
@@ -123,9 +108,9 @@
       <position method="uniform" min="-2,-2,0" max="-1,2,0" />
       <orientation method="uniform" min="0,0,0" max="360,0,0" />
       <entity quantity="20" max_trials="100">
-        <foot-bot id="fb">
-          <controller config="ffc" />
-        </foot-bot>
+        <kheperaiv id="kiv">
+          <controller config="obsAvoid" />
+        </kheperaiv>
       </entity>
     </distribute>
 
