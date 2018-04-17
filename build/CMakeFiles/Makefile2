@@ -63,398 +63,19 @@ CMAKE_BINARY_DIR = /home/ttshiz/swarm_project/build
 # Directory level rules for directory controllers
 
 # Convenience name for "all" pass in the directory.
-controllers/all: controllers/footbot_diffusion/all
-controllers/all: controllers/footbot_synchronization/all
-controllers/all: controllers/footbot_flocking/all
-controllers/all: controllers/footbot_gripping/all
 controllers/all: controllers/footbot_foraging/all
-controllers/all: controllers/footbot_manualcontrol/all
-controllers/all: controllers/footbot_nn/all
-controllers/all: controllers/eyebot_circle/all
-controllers/all: controllers/eyebot_flocking/all
-controllers/all: controllers/epuck_obstacleavoidance/all
 
 .PHONY : controllers/all
 
 # Convenience name for "clean" pass in the directory.
-controllers/clean: controllers/footbot_diffusion/clean
-controllers/clean: controllers/footbot_synchronization/clean
-controllers/clean: controllers/footbot_flocking/clean
-controllers/clean: controllers/footbot_gripping/clean
 controllers/clean: controllers/footbot_foraging/clean
-controllers/clean: controllers/footbot_manualcontrol/clean
-controllers/clean: controllers/footbot_nn/clean
-controllers/clean: controllers/eyebot_circle/clean
-controllers/clean: controllers/eyebot_flocking/clean
-controllers/clean: controllers/epuck_obstacleavoidance/clean
 
 .PHONY : controllers/clean
 
 # Convenience name for "preinstall" pass in the directory.
-controllers/preinstall: controllers/footbot_diffusion/preinstall
-controllers/preinstall: controllers/footbot_synchronization/preinstall
-controllers/preinstall: controllers/footbot_flocking/preinstall
-controllers/preinstall: controllers/footbot_gripping/preinstall
 controllers/preinstall: controllers/footbot_foraging/preinstall
-controllers/preinstall: controllers/footbot_manualcontrol/preinstall
-controllers/preinstall: controllers/footbot_nn/preinstall
-controllers/preinstall: controllers/eyebot_circle/preinstall
-controllers/preinstall: controllers/eyebot_flocking/preinstall
-controllers/preinstall: controllers/epuck_obstacleavoidance/preinstall
 
 .PHONY : controllers/preinstall
-
-#=============================================================================
-# Directory level rules for directory controllers/footbot_diffusion
-
-# Convenience name for "all" pass in the directory.
-controllers/footbot_diffusion/all: controllers/footbot_diffusion/CMakeFiles/footbot_diffusion.dir/all
-
-.PHONY : controllers/footbot_diffusion/all
-
-# Convenience name for "clean" pass in the directory.
-controllers/footbot_diffusion/clean: controllers/footbot_diffusion/CMakeFiles/footbot_diffusion.dir/clean
-controllers/footbot_diffusion/clean: controllers/footbot_diffusion/CMakeFiles/footbot_diffusion_automoc.dir/clean
-
-.PHONY : controllers/footbot_diffusion/clean
-
-# Convenience name for "preinstall" pass in the directory.
-controllers/footbot_diffusion/preinstall:
-
-.PHONY : controllers/footbot_diffusion/preinstall
-
-#=============================================================================
-# Target rules for target controllers/footbot_diffusion/CMakeFiles/footbot_diffusion.dir
-
-# All Build rule for target.
-controllers/footbot_diffusion/CMakeFiles/footbot_diffusion.dir/all: controllers/footbot_diffusion/CMakeFiles/footbot_diffusion_automoc.dir/all
-	$(MAKE) -f controllers/footbot_diffusion/CMakeFiles/footbot_diffusion.dir/build.make controllers/footbot_diffusion/CMakeFiles/footbot_diffusion.dir/depend
-	$(MAKE) -f controllers/footbot_diffusion/CMakeFiles/footbot_diffusion.dir/build.make controllers/footbot_diffusion/CMakeFiles/footbot_diffusion.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=14,15,16 "Built target footbot_diffusion"
-.PHONY : controllers/footbot_diffusion/CMakeFiles/footbot_diffusion.dir/all
-
-# Include target in all.
-all: controllers/footbot_diffusion/CMakeFiles/footbot_diffusion.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-controllers/footbot_diffusion/CMakeFiles/footbot_diffusion.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 controllers/footbot_diffusion/CMakeFiles/footbot_diffusion.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 0
-.PHONY : controllers/footbot_diffusion/CMakeFiles/footbot_diffusion.dir/rule
-
-# Convenience name for target.
-footbot_diffusion: controllers/footbot_diffusion/CMakeFiles/footbot_diffusion.dir/rule
-
-.PHONY : footbot_diffusion
-
-# clean rule for target.
-controllers/footbot_diffusion/CMakeFiles/footbot_diffusion.dir/clean:
-	$(MAKE) -f controllers/footbot_diffusion/CMakeFiles/footbot_diffusion.dir/build.make controllers/footbot_diffusion/CMakeFiles/footbot_diffusion.dir/clean
-.PHONY : controllers/footbot_diffusion/CMakeFiles/footbot_diffusion.dir/clean
-
-# clean rule for target.
-clean: controllers/footbot_diffusion/CMakeFiles/footbot_diffusion.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target controllers/footbot_diffusion/CMakeFiles/footbot_diffusion_automoc.dir
-
-# All Build rule for target.
-controllers/footbot_diffusion/CMakeFiles/footbot_diffusion_automoc.dir/all:
-	$(MAKE) -f controllers/footbot_diffusion/CMakeFiles/footbot_diffusion_automoc.dir/build.make controllers/footbot_diffusion/CMakeFiles/footbot_diffusion_automoc.dir/depend
-	$(MAKE) -f controllers/footbot_diffusion/CMakeFiles/footbot_diffusion_automoc.dir/build.make controllers/footbot_diffusion/CMakeFiles/footbot_diffusion_automoc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=17 "Built target footbot_diffusion_automoc"
-.PHONY : controllers/footbot_diffusion/CMakeFiles/footbot_diffusion_automoc.dir/all
-
-# Build rule for subdir invocation for target.
-controllers/footbot_diffusion/CMakeFiles/footbot_diffusion_automoc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 controllers/footbot_diffusion/CMakeFiles/footbot_diffusion_automoc.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 0
-.PHONY : controllers/footbot_diffusion/CMakeFiles/footbot_diffusion_automoc.dir/rule
-
-# Convenience name for target.
-footbot_diffusion_automoc: controllers/footbot_diffusion/CMakeFiles/footbot_diffusion_automoc.dir/rule
-
-.PHONY : footbot_diffusion_automoc
-
-# clean rule for target.
-controllers/footbot_diffusion/CMakeFiles/footbot_diffusion_automoc.dir/clean:
-	$(MAKE) -f controllers/footbot_diffusion/CMakeFiles/footbot_diffusion_automoc.dir/build.make controllers/footbot_diffusion/CMakeFiles/footbot_diffusion_automoc.dir/clean
-.PHONY : controllers/footbot_diffusion/CMakeFiles/footbot_diffusion_automoc.dir/clean
-
-# clean rule for target.
-clean: controllers/footbot_diffusion/CMakeFiles/footbot_diffusion_automoc.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory controllers/footbot_synchronization
-
-# Convenience name for "all" pass in the directory.
-controllers/footbot_synchronization/all: controllers/footbot_synchronization/CMakeFiles/footbot_synchronization.dir/all
-
-.PHONY : controllers/footbot_synchronization/all
-
-# Convenience name for "clean" pass in the directory.
-controllers/footbot_synchronization/clean: controllers/footbot_synchronization/CMakeFiles/footbot_synchronization.dir/clean
-controllers/footbot_synchronization/clean: controllers/footbot_synchronization/CMakeFiles/footbot_synchronization_automoc.dir/clean
-
-.PHONY : controllers/footbot_synchronization/clean
-
-# Convenience name for "preinstall" pass in the directory.
-controllers/footbot_synchronization/preinstall:
-
-.PHONY : controllers/footbot_synchronization/preinstall
-
-#=============================================================================
-# Target rules for target controllers/footbot_synchronization/CMakeFiles/footbot_synchronization.dir
-
-# All Build rule for target.
-controllers/footbot_synchronization/CMakeFiles/footbot_synchronization.dir/all: controllers/footbot_synchronization/CMakeFiles/footbot_synchronization_automoc.dir/all
-	$(MAKE) -f controllers/footbot_synchronization/CMakeFiles/footbot_synchronization.dir/build.make controllers/footbot_synchronization/CMakeFiles/footbot_synchronization.dir/depend
-	$(MAKE) -f controllers/footbot_synchronization/CMakeFiles/footbot_synchronization.dir/build.make controllers/footbot_synchronization/CMakeFiles/footbot_synchronization.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=41,42,43 "Built target footbot_synchronization"
-.PHONY : controllers/footbot_synchronization/CMakeFiles/footbot_synchronization.dir/all
-
-# Include target in all.
-all: controllers/footbot_synchronization/CMakeFiles/footbot_synchronization.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-controllers/footbot_synchronization/CMakeFiles/footbot_synchronization.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 controllers/footbot_synchronization/CMakeFiles/footbot_synchronization.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 0
-.PHONY : controllers/footbot_synchronization/CMakeFiles/footbot_synchronization.dir/rule
-
-# Convenience name for target.
-footbot_synchronization: controllers/footbot_synchronization/CMakeFiles/footbot_synchronization.dir/rule
-
-.PHONY : footbot_synchronization
-
-# clean rule for target.
-controllers/footbot_synchronization/CMakeFiles/footbot_synchronization.dir/clean:
-	$(MAKE) -f controllers/footbot_synchronization/CMakeFiles/footbot_synchronization.dir/build.make controllers/footbot_synchronization/CMakeFiles/footbot_synchronization.dir/clean
-.PHONY : controllers/footbot_synchronization/CMakeFiles/footbot_synchronization.dir/clean
-
-# clean rule for target.
-clean: controllers/footbot_synchronization/CMakeFiles/footbot_synchronization.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target controllers/footbot_synchronization/CMakeFiles/footbot_synchronization_automoc.dir
-
-# All Build rule for target.
-controllers/footbot_synchronization/CMakeFiles/footbot_synchronization_automoc.dir/all:
-	$(MAKE) -f controllers/footbot_synchronization/CMakeFiles/footbot_synchronization_automoc.dir/build.make controllers/footbot_synchronization/CMakeFiles/footbot_synchronization_automoc.dir/depend
-	$(MAKE) -f controllers/footbot_synchronization/CMakeFiles/footbot_synchronization_automoc.dir/build.make controllers/footbot_synchronization/CMakeFiles/footbot_synchronization_automoc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=44 "Built target footbot_synchronization_automoc"
-.PHONY : controllers/footbot_synchronization/CMakeFiles/footbot_synchronization_automoc.dir/all
-
-# Build rule for subdir invocation for target.
-controllers/footbot_synchronization/CMakeFiles/footbot_synchronization_automoc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 controllers/footbot_synchronization/CMakeFiles/footbot_synchronization_automoc.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 0
-.PHONY : controllers/footbot_synchronization/CMakeFiles/footbot_synchronization_automoc.dir/rule
-
-# Convenience name for target.
-footbot_synchronization_automoc: controllers/footbot_synchronization/CMakeFiles/footbot_synchronization_automoc.dir/rule
-
-.PHONY : footbot_synchronization_automoc
-
-# clean rule for target.
-controllers/footbot_synchronization/CMakeFiles/footbot_synchronization_automoc.dir/clean:
-	$(MAKE) -f controllers/footbot_synchronization/CMakeFiles/footbot_synchronization_automoc.dir/build.make controllers/footbot_synchronization/CMakeFiles/footbot_synchronization_automoc.dir/clean
-.PHONY : controllers/footbot_synchronization/CMakeFiles/footbot_synchronization_automoc.dir/clean
-
-# clean rule for target.
-clean: controllers/footbot_synchronization/CMakeFiles/footbot_synchronization_automoc.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory controllers/footbot_flocking
-
-# Convenience name for "all" pass in the directory.
-controllers/footbot_flocking/all: controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/all
-
-.PHONY : controllers/footbot_flocking/all
-
-# Convenience name for "clean" pass in the directory.
-controllers/footbot_flocking/clean: controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/clean
-controllers/footbot_flocking/clean: controllers/footbot_flocking/CMakeFiles/footbot_flocking_automoc.dir/clean
-
-.PHONY : controllers/footbot_flocking/clean
-
-# Convenience name for "preinstall" pass in the directory.
-controllers/footbot_flocking/preinstall:
-
-.PHONY : controllers/footbot_flocking/preinstall
-
-#=============================================================================
-# Target rules for target controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir
-
-# All Build rule for target.
-controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/all: controllers/footbot_flocking/CMakeFiles/footbot_flocking_automoc.dir/all
-	$(MAKE) -f controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/build.make controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/depend
-	$(MAKE) -f controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/build.make controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=18,19,20 "Built target footbot_flocking"
-.PHONY : controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/all
-
-# Include target in all.
-all: controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 0
-.PHONY : controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/rule
-
-# Convenience name for target.
-footbot_flocking: controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/rule
-
-.PHONY : footbot_flocking
-
-# clean rule for target.
-controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/clean:
-	$(MAKE) -f controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/build.make controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/clean
-.PHONY : controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/clean
-
-# clean rule for target.
-clean: controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target controllers/footbot_flocking/CMakeFiles/footbot_flocking_automoc.dir
-
-# All Build rule for target.
-controllers/footbot_flocking/CMakeFiles/footbot_flocking_automoc.dir/all:
-	$(MAKE) -f controllers/footbot_flocking/CMakeFiles/footbot_flocking_automoc.dir/build.make controllers/footbot_flocking/CMakeFiles/footbot_flocking_automoc.dir/depend
-	$(MAKE) -f controllers/footbot_flocking/CMakeFiles/footbot_flocking_automoc.dir/build.make controllers/footbot_flocking/CMakeFiles/footbot_flocking_automoc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=21 "Built target footbot_flocking_automoc"
-.PHONY : controllers/footbot_flocking/CMakeFiles/footbot_flocking_automoc.dir/all
-
-# Build rule for subdir invocation for target.
-controllers/footbot_flocking/CMakeFiles/footbot_flocking_automoc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 controllers/footbot_flocking/CMakeFiles/footbot_flocking_automoc.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 0
-.PHONY : controllers/footbot_flocking/CMakeFiles/footbot_flocking_automoc.dir/rule
-
-# Convenience name for target.
-footbot_flocking_automoc: controllers/footbot_flocking/CMakeFiles/footbot_flocking_automoc.dir/rule
-
-.PHONY : footbot_flocking_automoc
-
-# clean rule for target.
-controllers/footbot_flocking/CMakeFiles/footbot_flocking_automoc.dir/clean:
-	$(MAKE) -f controllers/footbot_flocking/CMakeFiles/footbot_flocking_automoc.dir/build.make controllers/footbot_flocking/CMakeFiles/footbot_flocking_automoc.dir/clean
-.PHONY : controllers/footbot_flocking/CMakeFiles/footbot_flocking_automoc.dir/clean
-
-# clean rule for target.
-clean: controllers/footbot_flocking/CMakeFiles/footbot_flocking_automoc.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory controllers/footbot_gripping
-
-# Convenience name for "all" pass in the directory.
-controllers/footbot_gripping/all: controllers/footbot_gripping/CMakeFiles/footbot_gripping.dir/all
-
-.PHONY : controllers/footbot_gripping/all
-
-# Convenience name for "clean" pass in the directory.
-controllers/footbot_gripping/clean: controllers/footbot_gripping/CMakeFiles/footbot_gripping.dir/clean
-controllers/footbot_gripping/clean: controllers/footbot_gripping/CMakeFiles/footbot_gripping_automoc.dir/clean
-
-.PHONY : controllers/footbot_gripping/clean
-
-# Convenience name for "preinstall" pass in the directory.
-controllers/footbot_gripping/preinstall:
-
-.PHONY : controllers/footbot_gripping/preinstall
-
-#=============================================================================
-# Target rules for target controllers/footbot_gripping/CMakeFiles/footbot_gripping.dir
-
-# All Build rule for target.
-controllers/footbot_gripping/CMakeFiles/footbot_gripping.dir/all: controllers/footbot_gripping/CMakeFiles/footbot_gripping_automoc.dir/all
-	$(MAKE) -f controllers/footbot_gripping/CMakeFiles/footbot_gripping.dir/build.make controllers/footbot_gripping/CMakeFiles/footbot_gripping.dir/depend
-	$(MAKE) -f controllers/footbot_gripping/CMakeFiles/footbot_gripping.dir/build.make controllers/footbot_gripping/CMakeFiles/footbot_gripping.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=26,27,28 "Built target footbot_gripping"
-.PHONY : controllers/footbot_gripping/CMakeFiles/footbot_gripping.dir/all
-
-# Include target in all.
-all: controllers/footbot_gripping/CMakeFiles/footbot_gripping.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-controllers/footbot_gripping/CMakeFiles/footbot_gripping.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 controllers/footbot_gripping/CMakeFiles/footbot_gripping.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 0
-.PHONY : controllers/footbot_gripping/CMakeFiles/footbot_gripping.dir/rule
-
-# Convenience name for target.
-footbot_gripping: controllers/footbot_gripping/CMakeFiles/footbot_gripping.dir/rule
-
-.PHONY : footbot_gripping
-
-# clean rule for target.
-controllers/footbot_gripping/CMakeFiles/footbot_gripping.dir/clean:
-	$(MAKE) -f controllers/footbot_gripping/CMakeFiles/footbot_gripping.dir/build.make controllers/footbot_gripping/CMakeFiles/footbot_gripping.dir/clean
-.PHONY : controllers/footbot_gripping/CMakeFiles/footbot_gripping.dir/clean
-
-# clean rule for target.
-clean: controllers/footbot_gripping/CMakeFiles/footbot_gripping.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target controllers/footbot_gripping/CMakeFiles/footbot_gripping_automoc.dir
-
-# All Build rule for target.
-controllers/footbot_gripping/CMakeFiles/footbot_gripping_automoc.dir/all:
-	$(MAKE) -f controllers/footbot_gripping/CMakeFiles/footbot_gripping_automoc.dir/build.make controllers/footbot_gripping/CMakeFiles/footbot_gripping_automoc.dir/depend
-	$(MAKE) -f controllers/footbot_gripping/CMakeFiles/footbot_gripping_automoc.dir/build.make controllers/footbot_gripping/CMakeFiles/footbot_gripping_automoc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=29 "Built target footbot_gripping_automoc"
-.PHONY : controllers/footbot_gripping/CMakeFiles/footbot_gripping_automoc.dir/all
-
-# Build rule for subdir invocation for target.
-controllers/footbot_gripping/CMakeFiles/footbot_gripping_automoc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 controllers/footbot_gripping/CMakeFiles/footbot_gripping_automoc.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 0
-.PHONY : controllers/footbot_gripping/CMakeFiles/footbot_gripping_automoc.dir/rule
-
-# Convenience name for target.
-footbot_gripping_automoc: controllers/footbot_gripping/CMakeFiles/footbot_gripping_automoc.dir/rule
-
-.PHONY : footbot_gripping_automoc
-
-# clean rule for target.
-controllers/footbot_gripping/CMakeFiles/footbot_gripping_automoc.dir/clean:
-	$(MAKE) -f controllers/footbot_gripping/CMakeFiles/footbot_gripping_automoc.dir/build.make controllers/footbot_gripping/CMakeFiles/footbot_gripping_automoc.dir/clean
-.PHONY : controllers/footbot_gripping/CMakeFiles/footbot_gripping_automoc.dir/clean
-
-# clean rule for target.
-clean: controllers/footbot_gripping/CMakeFiles/footbot_gripping_automoc.dir/clean
-
-.PHONY : clean
 
 #=============================================================================
 # Directory level rules for directory controllers/footbot_foraging
@@ -482,7 +103,7 @@ controllers/footbot_foraging/preinstall:
 controllers/footbot_foraging/CMakeFiles/footbot_foraging.dir/all: controllers/footbot_foraging/CMakeFiles/footbot_foraging_automoc.dir/all
 	$(MAKE) -f controllers/footbot_foraging/CMakeFiles/footbot_foraging.dir/build.make controllers/footbot_foraging/CMakeFiles/footbot_foraging.dir/depend
 	$(MAKE) -f controllers/footbot_foraging/CMakeFiles/footbot_foraging.dir/build.make controllers/footbot_foraging/CMakeFiles/footbot_foraging.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=22,23,24 "Built target footbot_foraging"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=1,2,3 "Built target footbot_foraging"
 .PHONY : controllers/footbot_foraging/CMakeFiles/footbot_foraging.dir/all
 
 # Include target in all.
@@ -519,7 +140,7 @@ clean: controllers/footbot_foraging/CMakeFiles/footbot_foraging.dir/clean
 controllers/footbot_foraging/CMakeFiles/footbot_foraging_automoc.dir/all:
 	$(MAKE) -f controllers/footbot_foraging/CMakeFiles/footbot_foraging_automoc.dir/build.make controllers/footbot_foraging/CMakeFiles/footbot_foraging_automoc.dir/depend
 	$(MAKE) -f controllers/footbot_foraging/CMakeFiles/footbot_foraging_automoc.dir/build.make controllers/footbot_foraging/CMakeFiles/footbot_foraging_automoc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=25 "Built target footbot_foraging_automoc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=4 "Built target footbot_foraging_automoc"
 .PHONY : controllers/footbot_foraging/CMakeFiles/footbot_foraging_automoc.dir/all
 
 # Build rule for subdir invocation for target.
@@ -545,462 +166,25 @@ clean: controllers/footbot_foraging/CMakeFiles/footbot_foraging_automoc.dir/clea
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory controllers/footbot_manualcontrol
-
-# Convenience name for "all" pass in the directory.
-controllers/footbot_manualcontrol/all: controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol.dir/all
-
-.PHONY : controllers/footbot_manualcontrol/all
-
-# Convenience name for "clean" pass in the directory.
-controllers/footbot_manualcontrol/clean: controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol.dir/clean
-controllers/footbot_manualcontrol/clean: controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol_automoc.dir/clean
-
-.PHONY : controllers/footbot_manualcontrol/clean
-
-# Convenience name for "preinstall" pass in the directory.
-controllers/footbot_manualcontrol/preinstall:
-
-.PHONY : controllers/footbot_manualcontrol/preinstall
-
-#=============================================================================
-# Target rules for target controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol.dir
-
-# All Build rule for target.
-controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol.dir/all: controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol_automoc.dir/all
-	$(MAKE) -f controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol.dir/build.make controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol.dir/depend
-	$(MAKE) -f controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol.dir/build.make controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=30,31,32 "Built target footbot_manualcontrol"
-.PHONY : controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol.dir/all
-
-# Include target in all.
-all: controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 0
-.PHONY : controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol.dir/rule
-
-# Convenience name for target.
-footbot_manualcontrol: controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol.dir/rule
-
-.PHONY : footbot_manualcontrol
-
-# clean rule for target.
-controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol.dir/clean:
-	$(MAKE) -f controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol.dir/build.make controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol.dir/clean
-.PHONY : controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol.dir/clean
-
-# clean rule for target.
-clean: controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol_automoc.dir
-
-# All Build rule for target.
-controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol_automoc.dir/all:
-	$(MAKE) -f controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol_automoc.dir/build.make controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol_automoc.dir/depend
-	$(MAKE) -f controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol_automoc.dir/build.make controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol_automoc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=33 "Built target footbot_manualcontrol_automoc"
-.PHONY : controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol_automoc.dir/all
-
-# Build rule for subdir invocation for target.
-controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol_automoc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol_automoc.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 0
-.PHONY : controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol_automoc.dir/rule
-
-# Convenience name for target.
-footbot_manualcontrol_automoc: controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol_automoc.dir/rule
-
-.PHONY : footbot_manualcontrol_automoc
-
-# clean rule for target.
-controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol_automoc.dir/clean:
-	$(MAKE) -f controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol_automoc.dir/build.make controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol_automoc.dir/clean
-.PHONY : controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol_automoc.dir/clean
-
-# clean rule for target.
-clean: controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol_automoc.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory controllers/footbot_nn
-
-# Convenience name for "all" pass in the directory.
-controllers/footbot_nn/all: controllers/footbot_nn/CMakeFiles/footbot_nn.dir/all
-
-.PHONY : controllers/footbot_nn/all
-
-# Convenience name for "clean" pass in the directory.
-controllers/footbot_nn/clean: controllers/footbot_nn/CMakeFiles/footbot_nn.dir/clean
-controllers/footbot_nn/clean: controllers/footbot_nn/CMakeFiles/footbot_nn_automoc.dir/clean
-
-.PHONY : controllers/footbot_nn/clean
-
-# Convenience name for "preinstall" pass in the directory.
-controllers/footbot_nn/preinstall:
-
-.PHONY : controllers/footbot_nn/preinstall
-
-#=============================================================================
-# Target rules for target controllers/footbot_nn/CMakeFiles/footbot_nn.dir
-
-# All Build rule for target.
-controllers/footbot_nn/CMakeFiles/footbot_nn.dir/all: controllers/footbot_nn/CMakeFiles/footbot_nn_automoc.dir/all
-	$(MAKE) -f controllers/footbot_nn/CMakeFiles/footbot_nn.dir/build.make controllers/footbot_nn/CMakeFiles/footbot_nn.dir/depend
-	$(MAKE) -f controllers/footbot_nn/CMakeFiles/footbot_nn.dir/build.make controllers/footbot_nn/CMakeFiles/footbot_nn.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=34,35,36,37,38,39 "Built target footbot_nn"
-.PHONY : controllers/footbot_nn/CMakeFiles/footbot_nn.dir/all
-
-# Include target in all.
-all: controllers/footbot_nn/CMakeFiles/footbot_nn.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-controllers/footbot_nn/CMakeFiles/footbot_nn.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 7
-	$(MAKE) -f CMakeFiles/Makefile2 controllers/footbot_nn/CMakeFiles/footbot_nn.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 0
-.PHONY : controllers/footbot_nn/CMakeFiles/footbot_nn.dir/rule
-
-# Convenience name for target.
-footbot_nn: controllers/footbot_nn/CMakeFiles/footbot_nn.dir/rule
-
-.PHONY : footbot_nn
-
-# clean rule for target.
-controllers/footbot_nn/CMakeFiles/footbot_nn.dir/clean:
-	$(MAKE) -f controllers/footbot_nn/CMakeFiles/footbot_nn.dir/build.make controllers/footbot_nn/CMakeFiles/footbot_nn.dir/clean
-.PHONY : controllers/footbot_nn/CMakeFiles/footbot_nn.dir/clean
-
-# clean rule for target.
-clean: controllers/footbot_nn/CMakeFiles/footbot_nn.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target controllers/footbot_nn/CMakeFiles/footbot_nn_automoc.dir
-
-# All Build rule for target.
-controllers/footbot_nn/CMakeFiles/footbot_nn_automoc.dir/all:
-	$(MAKE) -f controllers/footbot_nn/CMakeFiles/footbot_nn_automoc.dir/build.make controllers/footbot_nn/CMakeFiles/footbot_nn_automoc.dir/depend
-	$(MAKE) -f controllers/footbot_nn/CMakeFiles/footbot_nn_automoc.dir/build.make controllers/footbot_nn/CMakeFiles/footbot_nn_automoc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=40 "Built target footbot_nn_automoc"
-.PHONY : controllers/footbot_nn/CMakeFiles/footbot_nn_automoc.dir/all
-
-# Build rule for subdir invocation for target.
-controllers/footbot_nn/CMakeFiles/footbot_nn_automoc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 controllers/footbot_nn/CMakeFiles/footbot_nn_automoc.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 0
-.PHONY : controllers/footbot_nn/CMakeFiles/footbot_nn_automoc.dir/rule
-
-# Convenience name for target.
-footbot_nn_automoc: controllers/footbot_nn/CMakeFiles/footbot_nn_automoc.dir/rule
-
-.PHONY : footbot_nn_automoc
-
-# clean rule for target.
-controllers/footbot_nn/CMakeFiles/footbot_nn_automoc.dir/clean:
-	$(MAKE) -f controllers/footbot_nn/CMakeFiles/footbot_nn_automoc.dir/build.make controllers/footbot_nn/CMakeFiles/footbot_nn_automoc.dir/clean
-.PHONY : controllers/footbot_nn/CMakeFiles/footbot_nn_automoc.dir/clean
-
-# clean rule for target.
-clean: controllers/footbot_nn/CMakeFiles/footbot_nn_automoc.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory controllers/eyebot_circle
-
-# Convenience name for "all" pass in the directory.
-controllers/eyebot_circle/all: controllers/eyebot_circle/CMakeFiles/eyebot_circle.dir/all
-
-.PHONY : controllers/eyebot_circle/all
-
-# Convenience name for "clean" pass in the directory.
-controllers/eyebot_circle/clean: controllers/eyebot_circle/CMakeFiles/eyebot_circle.dir/clean
-controllers/eyebot_circle/clean: controllers/eyebot_circle/CMakeFiles/eyebot_circle_automoc.dir/clean
-
-.PHONY : controllers/eyebot_circle/clean
-
-# Convenience name for "preinstall" pass in the directory.
-controllers/eyebot_circle/preinstall:
-
-.PHONY : controllers/eyebot_circle/preinstall
-
-#=============================================================================
-# Target rules for target controllers/eyebot_circle/CMakeFiles/eyebot_circle.dir
-
-# All Build rule for target.
-controllers/eyebot_circle/CMakeFiles/eyebot_circle.dir/all: controllers/eyebot_circle/CMakeFiles/eyebot_circle_automoc.dir/all
-	$(MAKE) -f controllers/eyebot_circle/CMakeFiles/eyebot_circle.dir/build.make controllers/eyebot_circle/CMakeFiles/eyebot_circle.dir/depend
-	$(MAKE) -f controllers/eyebot_circle/CMakeFiles/eyebot_circle.dir/build.make controllers/eyebot_circle/CMakeFiles/eyebot_circle.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=5,6,7,8 "Built target eyebot_circle"
-.PHONY : controllers/eyebot_circle/CMakeFiles/eyebot_circle.dir/all
-
-# Include target in all.
-all: controllers/eyebot_circle/CMakeFiles/eyebot_circle.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-controllers/eyebot_circle/CMakeFiles/eyebot_circle.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 5
-	$(MAKE) -f CMakeFiles/Makefile2 controllers/eyebot_circle/CMakeFiles/eyebot_circle.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 0
-.PHONY : controllers/eyebot_circle/CMakeFiles/eyebot_circle.dir/rule
-
-# Convenience name for target.
-eyebot_circle: controllers/eyebot_circle/CMakeFiles/eyebot_circle.dir/rule
-
-.PHONY : eyebot_circle
-
-# clean rule for target.
-controllers/eyebot_circle/CMakeFiles/eyebot_circle.dir/clean:
-	$(MAKE) -f controllers/eyebot_circle/CMakeFiles/eyebot_circle.dir/build.make controllers/eyebot_circle/CMakeFiles/eyebot_circle.dir/clean
-.PHONY : controllers/eyebot_circle/CMakeFiles/eyebot_circle.dir/clean
-
-# clean rule for target.
-clean: controllers/eyebot_circle/CMakeFiles/eyebot_circle.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target controllers/eyebot_circle/CMakeFiles/eyebot_circle_automoc.dir
-
-# All Build rule for target.
-controllers/eyebot_circle/CMakeFiles/eyebot_circle_automoc.dir/all:
-	$(MAKE) -f controllers/eyebot_circle/CMakeFiles/eyebot_circle_automoc.dir/build.make controllers/eyebot_circle/CMakeFiles/eyebot_circle_automoc.dir/depend
-	$(MAKE) -f controllers/eyebot_circle/CMakeFiles/eyebot_circle_automoc.dir/build.make controllers/eyebot_circle/CMakeFiles/eyebot_circle_automoc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=9 "Built target eyebot_circle_automoc"
-.PHONY : controllers/eyebot_circle/CMakeFiles/eyebot_circle_automoc.dir/all
-
-# Build rule for subdir invocation for target.
-controllers/eyebot_circle/CMakeFiles/eyebot_circle_automoc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 controllers/eyebot_circle/CMakeFiles/eyebot_circle_automoc.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 0
-.PHONY : controllers/eyebot_circle/CMakeFiles/eyebot_circle_automoc.dir/rule
-
-# Convenience name for target.
-eyebot_circle_automoc: controllers/eyebot_circle/CMakeFiles/eyebot_circle_automoc.dir/rule
-
-.PHONY : eyebot_circle_automoc
-
-# clean rule for target.
-controllers/eyebot_circle/CMakeFiles/eyebot_circle_automoc.dir/clean:
-	$(MAKE) -f controllers/eyebot_circle/CMakeFiles/eyebot_circle_automoc.dir/build.make controllers/eyebot_circle/CMakeFiles/eyebot_circle_automoc.dir/clean
-.PHONY : controllers/eyebot_circle/CMakeFiles/eyebot_circle_automoc.dir/clean
-
-# clean rule for target.
-clean: controllers/eyebot_circle/CMakeFiles/eyebot_circle_automoc.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory controllers/eyebot_flocking
-
-# Convenience name for "all" pass in the directory.
-controllers/eyebot_flocking/all: controllers/eyebot_flocking/CMakeFiles/eyebot_flocking.dir/all
-
-.PHONY : controllers/eyebot_flocking/all
-
-# Convenience name for "clean" pass in the directory.
-controllers/eyebot_flocking/clean: controllers/eyebot_flocking/CMakeFiles/eyebot_flocking.dir/clean
-controllers/eyebot_flocking/clean: controllers/eyebot_flocking/CMakeFiles/eyebot_flocking_automoc.dir/clean
-
-.PHONY : controllers/eyebot_flocking/clean
-
-# Convenience name for "preinstall" pass in the directory.
-controllers/eyebot_flocking/preinstall:
-
-.PHONY : controllers/eyebot_flocking/preinstall
-
-#=============================================================================
-# Target rules for target controllers/eyebot_flocking/CMakeFiles/eyebot_flocking.dir
-
-# All Build rule for target.
-controllers/eyebot_flocking/CMakeFiles/eyebot_flocking.dir/all: controllers/eyebot_flocking/CMakeFiles/eyebot_flocking_automoc.dir/all
-	$(MAKE) -f controllers/eyebot_flocking/CMakeFiles/eyebot_flocking.dir/build.make controllers/eyebot_flocking/CMakeFiles/eyebot_flocking.dir/depend
-	$(MAKE) -f controllers/eyebot_flocking/CMakeFiles/eyebot_flocking.dir/build.make controllers/eyebot_flocking/CMakeFiles/eyebot_flocking.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=10,11,12 "Built target eyebot_flocking"
-.PHONY : controllers/eyebot_flocking/CMakeFiles/eyebot_flocking.dir/all
-
-# Include target in all.
-all: controllers/eyebot_flocking/CMakeFiles/eyebot_flocking.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-controllers/eyebot_flocking/CMakeFiles/eyebot_flocking.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 controllers/eyebot_flocking/CMakeFiles/eyebot_flocking.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 0
-.PHONY : controllers/eyebot_flocking/CMakeFiles/eyebot_flocking.dir/rule
-
-# Convenience name for target.
-eyebot_flocking: controllers/eyebot_flocking/CMakeFiles/eyebot_flocking.dir/rule
-
-.PHONY : eyebot_flocking
-
-# clean rule for target.
-controllers/eyebot_flocking/CMakeFiles/eyebot_flocking.dir/clean:
-	$(MAKE) -f controllers/eyebot_flocking/CMakeFiles/eyebot_flocking.dir/build.make controllers/eyebot_flocking/CMakeFiles/eyebot_flocking.dir/clean
-.PHONY : controllers/eyebot_flocking/CMakeFiles/eyebot_flocking.dir/clean
-
-# clean rule for target.
-clean: controllers/eyebot_flocking/CMakeFiles/eyebot_flocking.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target controllers/eyebot_flocking/CMakeFiles/eyebot_flocking_automoc.dir
-
-# All Build rule for target.
-controllers/eyebot_flocking/CMakeFiles/eyebot_flocking_automoc.dir/all:
-	$(MAKE) -f controllers/eyebot_flocking/CMakeFiles/eyebot_flocking_automoc.dir/build.make controllers/eyebot_flocking/CMakeFiles/eyebot_flocking_automoc.dir/depend
-	$(MAKE) -f controllers/eyebot_flocking/CMakeFiles/eyebot_flocking_automoc.dir/build.make controllers/eyebot_flocking/CMakeFiles/eyebot_flocking_automoc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=13 "Built target eyebot_flocking_automoc"
-.PHONY : controllers/eyebot_flocking/CMakeFiles/eyebot_flocking_automoc.dir/all
-
-# Build rule for subdir invocation for target.
-controllers/eyebot_flocking/CMakeFiles/eyebot_flocking_automoc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 controllers/eyebot_flocking/CMakeFiles/eyebot_flocking_automoc.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 0
-.PHONY : controllers/eyebot_flocking/CMakeFiles/eyebot_flocking_automoc.dir/rule
-
-# Convenience name for target.
-eyebot_flocking_automoc: controllers/eyebot_flocking/CMakeFiles/eyebot_flocking_automoc.dir/rule
-
-.PHONY : eyebot_flocking_automoc
-
-# clean rule for target.
-controllers/eyebot_flocking/CMakeFiles/eyebot_flocking_automoc.dir/clean:
-	$(MAKE) -f controllers/eyebot_flocking/CMakeFiles/eyebot_flocking_automoc.dir/build.make controllers/eyebot_flocking/CMakeFiles/eyebot_flocking_automoc.dir/clean
-.PHONY : controllers/eyebot_flocking/CMakeFiles/eyebot_flocking_automoc.dir/clean
-
-# clean rule for target.
-clean: controllers/eyebot_flocking/CMakeFiles/eyebot_flocking_automoc.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory controllers/epuck_obstacleavoidance
-
-# Convenience name for "all" pass in the directory.
-controllers/epuck_obstacleavoidance/all: controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance.dir/all
-
-.PHONY : controllers/epuck_obstacleavoidance/all
-
-# Convenience name for "clean" pass in the directory.
-controllers/epuck_obstacleavoidance/clean: controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance.dir/clean
-controllers/epuck_obstacleavoidance/clean: controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance_automoc.dir/clean
-
-.PHONY : controllers/epuck_obstacleavoidance/clean
-
-# Convenience name for "preinstall" pass in the directory.
-controllers/epuck_obstacleavoidance/preinstall:
-
-.PHONY : controllers/epuck_obstacleavoidance/preinstall
-
-#=============================================================================
-# Target rules for target controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance.dir
-
-# All Build rule for target.
-controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance.dir/all: controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance_automoc.dir/all
-	$(MAKE) -f controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance.dir/build.make controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance.dir/depend
-	$(MAKE) -f controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance.dir/build.make controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=1,2,3 "Built target epuck_obstacleavoidance"
-.PHONY : controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance.dir/all
-
-# Include target in all.
-all: controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 0
-.PHONY : controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance.dir/rule
-
-# Convenience name for target.
-epuck_obstacleavoidance: controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance.dir/rule
-
-.PHONY : epuck_obstacleavoidance
-
-# clean rule for target.
-controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance.dir/clean:
-	$(MAKE) -f controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance.dir/build.make controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance.dir/clean
-.PHONY : controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance.dir/clean
-
-# clean rule for target.
-clean: controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance_automoc.dir
-
-# All Build rule for target.
-controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance_automoc.dir/all:
-	$(MAKE) -f controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance_automoc.dir/build.make controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance_automoc.dir/depend
-	$(MAKE) -f controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance_automoc.dir/build.make controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance_automoc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=4 "Built target epuck_obstacleavoidance_automoc"
-.PHONY : controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance_automoc.dir/all
-
-# Build rule for subdir invocation for target.
-controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance_automoc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance_automoc.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 0
-.PHONY : controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance_automoc.dir/rule
-
-# Convenience name for target.
-epuck_obstacleavoidance_automoc: controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance_automoc.dir/rule
-
-.PHONY : epuck_obstacleavoidance_automoc
-
-# clean rule for target.
-controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance_automoc.dir/clean:
-	$(MAKE) -f controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance_automoc.dir/build.make controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance_automoc.dir/clean
-.PHONY : controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance_automoc.dir/clean
-
-# clean rule for target.
-clean: controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance_automoc.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
 # Directory level rules for directory loop_functions
 
 # Convenience name for "all" pass in the directory.
 loop_functions/all: loop_functions/foraging_loop_functions/all
+loop_functions/all: loop_functions/foraging_loop_functionsv2/all
 loop_functions/all: loop_functions/localization_loop_functions/all
 
 .PHONY : loop_functions/all
 
 # Convenience name for "clean" pass in the directory.
 loop_functions/clean: loop_functions/foraging_loop_functions/clean
+loop_functions/clean: loop_functions/foraging_loop_functionsv2/clean
 loop_functions/clean: loop_functions/localization_loop_functions/clean
 
 .PHONY : loop_functions/clean
 
 # Convenience name for "preinstall" pass in the directory.
 loop_functions/preinstall: loop_functions/foraging_loop_functions/preinstall
+loop_functions/preinstall: loop_functions/foraging_loop_functionsv2/preinstall
 loop_functions/preinstall: loop_functions/localization_loop_functions/preinstall
 
 .PHONY : loop_functions/preinstall
@@ -1032,7 +216,7 @@ loop_functions/foraging_loop_functions/CMakeFiles/foraging_loop_functions.dir/al
 loop_functions/foraging_loop_functions/CMakeFiles/foraging_loop_functions.dir/all: loop_functions/foraging_loop_functions/CMakeFiles/foraging_loop_functions_automoc.dir/all
 	$(MAKE) -f loop_functions/foraging_loop_functions/CMakeFiles/foraging_loop_functions.dir/build.make loop_functions/foraging_loop_functions/CMakeFiles/foraging_loop_functions.dir/depend
 	$(MAKE) -f loop_functions/foraging_loop_functions/CMakeFiles/foraging_loop_functions.dir/build.make loop_functions/foraging_loop_functions/CMakeFiles/foraging_loop_functions.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=45,46,47,48 "Built target foraging_loop_functions"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=5,6,7,8 "Built target foraging_loop_functions"
 .PHONY : loop_functions/foraging_loop_functions/CMakeFiles/foraging_loop_functions.dir/all
 
 # Include target in all.
@@ -1069,7 +253,7 @@ clean: loop_functions/foraging_loop_functions/CMakeFiles/foraging_loop_functions
 loop_functions/foraging_loop_functions/CMakeFiles/foraging_loop_functions_automoc.dir/all:
 	$(MAKE) -f loop_functions/foraging_loop_functions/CMakeFiles/foraging_loop_functions_automoc.dir/build.make loop_functions/foraging_loop_functions/CMakeFiles/foraging_loop_functions_automoc.dir/depend
 	$(MAKE) -f loop_functions/foraging_loop_functions/CMakeFiles/foraging_loop_functions_automoc.dir/build.make loop_functions/foraging_loop_functions/CMakeFiles/foraging_loop_functions_automoc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=49 "Built target foraging_loop_functions_automoc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=9 "Built target foraging_loop_functions_automoc"
 .PHONY : loop_functions/foraging_loop_functions/CMakeFiles/foraging_loop_functions_automoc.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1091,6 +275,95 @@ loop_functions/foraging_loop_functions/CMakeFiles/foraging_loop_functions_automo
 
 # clean rule for target.
 clean: loop_functions/foraging_loop_functions/CMakeFiles/foraging_loop_functions_automoc.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory loop_functions/foraging_loop_functionsv2
+
+# Convenience name for "all" pass in the directory.
+loop_functions/foraging_loop_functionsv2/all: loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir/all
+
+.PHONY : loop_functions/foraging_loop_functionsv2/all
+
+# Convenience name for "clean" pass in the directory.
+loop_functions/foraging_loop_functionsv2/clean: loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir/clean
+loop_functions/foraging_loop_functionsv2/clean: loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2_automoc.dir/clean
+
+.PHONY : loop_functions/foraging_loop_functionsv2/clean
+
+# Convenience name for "preinstall" pass in the directory.
+loop_functions/foraging_loop_functionsv2/preinstall:
+
+.PHONY : loop_functions/foraging_loop_functionsv2/preinstall
+
+#=============================================================================
+# Target rules for target loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir
+
+# All Build rule for target.
+loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir/all: controllers/footbot_foraging/CMakeFiles/footbot_foraging.dir/all
+loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir/all: loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2_automoc.dir/all
+	$(MAKE) -f loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir/build.make loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir/depend
+	$(MAKE) -f loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir/build.make loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=10,11 "Built target foraging_loop_functionsv2"
+.PHONY : loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir/all
+
+# Include target in all.
+all: loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 7
+	$(MAKE) -f CMakeFiles/Makefile2 loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 0
+.PHONY : loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir/rule
+
+# Convenience name for target.
+foraging_loop_functionsv2: loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir/rule
+
+.PHONY : foraging_loop_functionsv2
+
+# clean rule for target.
+loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir/clean:
+	$(MAKE) -f loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir/build.make loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir/clean
+.PHONY : loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir/clean
+
+# clean rule for target.
+clean: loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2_automoc.dir
+
+# All Build rule for target.
+loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2_automoc.dir/all:
+	$(MAKE) -f loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2_automoc.dir/build.make loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2_automoc.dir/depend
+	$(MAKE) -f loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2_automoc.dir/build.make loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2_automoc.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=12 "Built target foraging_loop_functionsv2_automoc"
+.PHONY : loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2_automoc.dir/all
+
+# Build rule for subdir invocation for target.
+loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2_automoc.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2_automoc.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ttshiz/swarm_project/build/CMakeFiles 0
+.PHONY : loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2_automoc.dir/rule
+
+# Convenience name for target.
+foraging_loop_functionsv2_automoc: loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2_automoc.dir/rule
+
+.PHONY : foraging_loop_functionsv2_automoc
+
+# clean rule for target.
+loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2_automoc.dir/clean:
+	$(MAKE) -f loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2_automoc.dir/build.make loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2_automoc.dir/clean
+.PHONY : loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2_automoc.dir/clean
+
+# clean rule for target.
+clean: loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2_automoc.dir/clean
 
 .PHONY : clean
 
@@ -1121,7 +394,7 @@ loop_functions/localization_loop_functions/CMakeFiles/localization_loop_function
 loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/all: loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions_automoc.dir/all
 	$(MAKE) -f loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/build.make loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/depend
 	$(MAKE) -f loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/build.make loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=50,51,52 "Built target localization_loop_functions"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=13,14,15 "Built target localization_loop_functions"
 .PHONY : loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/all
 
 # Include target in all.
@@ -1158,7 +431,7 @@ clean: loop_functions/localization_loop_functions/CMakeFiles/localization_loop_f
 loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions_automoc.dir/all:
 	$(MAKE) -f loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions_automoc.dir/build.make loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions_automoc.dir/depend
 	$(MAKE) -f loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions_automoc.dir/build.make loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions_automoc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=53 "Built target localization_loop_functions_automoc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ttshiz/swarm_project/build/CMakeFiles --progress-num=16 "Built target localization_loop_functions_automoc"
 .PHONY : loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions_automoc.dir/all
 
 # Build rule for subdir invocation for target.

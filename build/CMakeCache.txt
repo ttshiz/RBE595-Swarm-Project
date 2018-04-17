@@ -233,37 +233,13 @@ argos3_examples_BINARY_DIR:STATIC=/home/ttshiz/swarm_project/build
 argos3_examples_SOURCE_DIR:STATIC=/home/ttshiz/swarm_project
 
 //Dependencies for the target
-epuck_obstacleavoidance_LIB_DEPENDS:STATIC=general;argos3core_simulator;general;argos3plugin_simulator_epuck;general;argos3plugin_simulator_genericrobot;
-
-//Dependencies for the target
-eyebot_circle_LIB_DEPENDS:STATIC=general;argos3core_simulator;general;argos3plugin_simulator_eyebot;general;argos3plugin_simulator_genericrobot;
-
-//Dependencies for the target
-eyebot_flocking_LIB_DEPENDS:STATIC=general;argos3core_simulator;general;argos3plugin_simulator_eyebot;general;argos3plugin_simulator_genericrobot;
-
-//Dependencies for the target
-footbot_diffusion_LIB_DEPENDS:STATIC=general;argos3core_simulator;general;argos3plugin_simulator_footbot;general;argos3plugin_simulator_genericrobot;
-
-//Dependencies for the target
-footbot_flocking_LIB_DEPENDS:STATIC=general;argos3core_simulator;general;argos3plugin_simulator_footbot;general;argos3plugin_simulator_genericrobot;
-
-//Dependencies for the target
 footbot_foraging_LIB_DEPENDS:STATIC=general;argos3core_simulator;general;argos3plugin_simulator_footbot;general;argos3plugin_simulator_genericrobot;
 
 //Dependencies for the target
-footbot_gripping_LIB_DEPENDS:STATIC=general;argos3core_simulator;general;argos3plugin_simulator_footbot;general;argos3plugin_simulator_genericrobot;
-
-//Dependencies for the target
-footbot_manualcontrol_LIB_DEPENDS:STATIC=general;argos3core_simulator;general;argos3plugin_simulator_footbot;general;argos3plugin_simulator_genericrobot;
-
-//Dependencies for the target
-footbot_nn_LIB_DEPENDS:STATIC=general;argos3core_simulator;general;argos3plugin_simulator_footbot;general;argos3plugin_simulator_genericrobot;
-
-//Dependencies for the target
-footbot_synchronization_LIB_DEPENDS:STATIC=general;argos3core_simulator;general;argos3plugin_simulator_footbot;general;argos3plugin_simulator_genericrobot;
-
-//Dependencies for the target
 foraging_loop_functions_LIB_DEPENDS:STATIC=general;footbot_foraging;general;argos3core_simulator;general;argos3plugin_simulator_dynamics2d;general;argos3plugin_simulator_entities;general;argos3plugin_simulator_footbot;general;argos3plugin_simulator_genericrobot;general;argos3plugin_simulator_media;general;argos3plugin_simulator_qtopengl;
+
+//Dependencies for the target
+foraging_loop_functionsv2_LIB_DEPENDS:STATIC=general;footbot_foraging;general;argos3core_simulator;general;argos3plugin_simulator_dynamics2d;general;argos3plugin_simulator_entities;general;argos3plugin_simulator_footbot;general;argos3plugin_simulator_genericrobot;general;argos3plugin_simulator_media;general;argos3plugin_simulator_qtopengl;
 
 //Dependencies for the target
 localization_loop_functions_LIB_DEPENDS:STATIC=general;footbot_foraging;general;argos3core_simulator;general;argos3plugin_simulator_dynamics2d;general;argos3plugin_simulator_entities;general;argos3plugin_simulator_kheperaiv;general;argos3plugin_simulator_genericrobot;general;argos3plugin_simulator_media;general;argos3plugin_simulator_qtopengl;
@@ -393,7 +369,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=15
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=7
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

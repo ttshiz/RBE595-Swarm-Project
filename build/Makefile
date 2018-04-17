@@ -111,110 +111,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named footbot_diffusion
-
-# Build rule for target.
-footbot_diffusion: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 footbot_diffusion
-.PHONY : footbot_diffusion
-
-# fast build rule for target.
-footbot_diffusion/fast:
-	$(MAKE) -f controllers/footbot_diffusion/CMakeFiles/footbot_diffusion.dir/build.make controllers/footbot_diffusion/CMakeFiles/footbot_diffusion.dir/build
-.PHONY : footbot_diffusion/fast
-
-#=============================================================================
-# Target rules for targets named footbot_diffusion_automoc
-
-# Build rule for target.
-footbot_diffusion_automoc: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 footbot_diffusion_automoc
-.PHONY : footbot_diffusion_automoc
-
-# fast build rule for target.
-footbot_diffusion_automoc/fast:
-	$(MAKE) -f controllers/footbot_diffusion/CMakeFiles/footbot_diffusion_automoc.dir/build.make controllers/footbot_diffusion/CMakeFiles/footbot_diffusion_automoc.dir/build
-.PHONY : footbot_diffusion_automoc/fast
-
-#=============================================================================
-# Target rules for targets named footbot_synchronization
-
-# Build rule for target.
-footbot_synchronization: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 footbot_synchronization
-.PHONY : footbot_synchronization
-
-# fast build rule for target.
-footbot_synchronization/fast:
-	$(MAKE) -f controllers/footbot_synchronization/CMakeFiles/footbot_synchronization.dir/build.make controllers/footbot_synchronization/CMakeFiles/footbot_synchronization.dir/build
-.PHONY : footbot_synchronization/fast
-
-#=============================================================================
-# Target rules for targets named footbot_synchronization_automoc
-
-# Build rule for target.
-footbot_synchronization_automoc: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 footbot_synchronization_automoc
-.PHONY : footbot_synchronization_automoc
-
-# fast build rule for target.
-footbot_synchronization_automoc/fast:
-	$(MAKE) -f controllers/footbot_synchronization/CMakeFiles/footbot_synchronization_automoc.dir/build.make controllers/footbot_synchronization/CMakeFiles/footbot_synchronization_automoc.dir/build
-.PHONY : footbot_synchronization_automoc/fast
-
-#=============================================================================
-# Target rules for targets named footbot_flocking
-
-# Build rule for target.
-footbot_flocking: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 footbot_flocking
-.PHONY : footbot_flocking
-
-# fast build rule for target.
-footbot_flocking/fast:
-	$(MAKE) -f controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/build.make controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/build
-.PHONY : footbot_flocking/fast
-
-#=============================================================================
-# Target rules for targets named footbot_flocking_automoc
-
-# Build rule for target.
-footbot_flocking_automoc: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 footbot_flocking_automoc
-.PHONY : footbot_flocking_automoc
-
-# fast build rule for target.
-footbot_flocking_automoc/fast:
-	$(MAKE) -f controllers/footbot_flocking/CMakeFiles/footbot_flocking_automoc.dir/build.make controllers/footbot_flocking/CMakeFiles/footbot_flocking_automoc.dir/build
-.PHONY : footbot_flocking_automoc/fast
-
-#=============================================================================
-# Target rules for targets named footbot_gripping
-
-# Build rule for target.
-footbot_gripping: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 footbot_gripping
-.PHONY : footbot_gripping
-
-# fast build rule for target.
-footbot_gripping/fast:
-	$(MAKE) -f controllers/footbot_gripping/CMakeFiles/footbot_gripping.dir/build.make controllers/footbot_gripping/CMakeFiles/footbot_gripping.dir/build
-.PHONY : footbot_gripping/fast
-
-#=============================================================================
-# Target rules for targets named footbot_gripping_automoc
-
-# Build rule for target.
-footbot_gripping_automoc: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 footbot_gripping_automoc
-.PHONY : footbot_gripping_automoc
-
-# fast build rule for target.
-footbot_gripping_automoc/fast:
-	$(MAKE) -f controllers/footbot_gripping/CMakeFiles/footbot_gripping_automoc.dir/build.make controllers/footbot_gripping/CMakeFiles/footbot_gripping_automoc.dir/build
-.PHONY : footbot_gripping_automoc/fast
-
-#=============================================================================
 # Target rules for targets named footbot_foraging
 
 # Build rule for target.
@@ -241,136 +137,6 @@ footbot_foraging_automoc/fast:
 .PHONY : footbot_foraging_automoc/fast
 
 #=============================================================================
-# Target rules for targets named footbot_manualcontrol
-
-# Build rule for target.
-footbot_manualcontrol: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 footbot_manualcontrol
-.PHONY : footbot_manualcontrol
-
-# fast build rule for target.
-footbot_manualcontrol/fast:
-	$(MAKE) -f controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol.dir/build.make controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol.dir/build
-.PHONY : footbot_manualcontrol/fast
-
-#=============================================================================
-# Target rules for targets named footbot_manualcontrol_automoc
-
-# Build rule for target.
-footbot_manualcontrol_automoc: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 footbot_manualcontrol_automoc
-.PHONY : footbot_manualcontrol_automoc
-
-# fast build rule for target.
-footbot_manualcontrol_automoc/fast:
-	$(MAKE) -f controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol_automoc.dir/build.make controllers/footbot_manualcontrol/CMakeFiles/footbot_manualcontrol_automoc.dir/build
-.PHONY : footbot_manualcontrol_automoc/fast
-
-#=============================================================================
-# Target rules for targets named footbot_nn
-
-# Build rule for target.
-footbot_nn: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 footbot_nn
-.PHONY : footbot_nn
-
-# fast build rule for target.
-footbot_nn/fast:
-	$(MAKE) -f controllers/footbot_nn/CMakeFiles/footbot_nn.dir/build.make controllers/footbot_nn/CMakeFiles/footbot_nn.dir/build
-.PHONY : footbot_nn/fast
-
-#=============================================================================
-# Target rules for targets named footbot_nn_automoc
-
-# Build rule for target.
-footbot_nn_automoc: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 footbot_nn_automoc
-.PHONY : footbot_nn_automoc
-
-# fast build rule for target.
-footbot_nn_automoc/fast:
-	$(MAKE) -f controllers/footbot_nn/CMakeFiles/footbot_nn_automoc.dir/build.make controllers/footbot_nn/CMakeFiles/footbot_nn_automoc.dir/build
-.PHONY : footbot_nn_automoc/fast
-
-#=============================================================================
-# Target rules for targets named eyebot_circle
-
-# Build rule for target.
-eyebot_circle: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 eyebot_circle
-.PHONY : eyebot_circle
-
-# fast build rule for target.
-eyebot_circle/fast:
-	$(MAKE) -f controllers/eyebot_circle/CMakeFiles/eyebot_circle.dir/build.make controllers/eyebot_circle/CMakeFiles/eyebot_circle.dir/build
-.PHONY : eyebot_circle/fast
-
-#=============================================================================
-# Target rules for targets named eyebot_circle_automoc
-
-# Build rule for target.
-eyebot_circle_automoc: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 eyebot_circle_automoc
-.PHONY : eyebot_circle_automoc
-
-# fast build rule for target.
-eyebot_circle_automoc/fast:
-	$(MAKE) -f controllers/eyebot_circle/CMakeFiles/eyebot_circle_automoc.dir/build.make controllers/eyebot_circle/CMakeFiles/eyebot_circle_automoc.dir/build
-.PHONY : eyebot_circle_automoc/fast
-
-#=============================================================================
-# Target rules for targets named eyebot_flocking
-
-# Build rule for target.
-eyebot_flocking: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 eyebot_flocking
-.PHONY : eyebot_flocking
-
-# fast build rule for target.
-eyebot_flocking/fast:
-	$(MAKE) -f controllers/eyebot_flocking/CMakeFiles/eyebot_flocking.dir/build.make controllers/eyebot_flocking/CMakeFiles/eyebot_flocking.dir/build
-.PHONY : eyebot_flocking/fast
-
-#=============================================================================
-# Target rules for targets named eyebot_flocking_automoc
-
-# Build rule for target.
-eyebot_flocking_automoc: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 eyebot_flocking_automoc
-.PHONY : eyebot_flocking_automoc
-
-# fast build rule for target.
-eyebot_flocking_automoc/fast:
-	$(MAKE) -f controllers/eyebot_flocking/CMakeFiles/eyebot_flocking_automoc.dir/build.make controllers/eyebot_flocking/CMakeFiles/eyebot_flocking_automoc.dir/build
-.PHONY : eyebot_flocking_automoc/fast
-
-#=============================================================================
-# Target rules for targets named epuck_obstacleavoidance
-
-# Build rule for target.
-epuck_obstacleavoidance: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 epuck_obstacleavoidance
-.PHONY : epuck_obstacleavoidance
-
-# fast build rule for target.
-epuck_obstacleavoidance/fast:
-	$(MAKE) -f controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance.dir/build.make controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance.dir/build
-.PHONY : epuck_obstacleavoidance/fast
-
-#=============================================================================
-# Target rules for targets named epuck_obstacleavoidance_automoc
-
-# Build rule for target.
-epuck_obstacleavoidance_automoc: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 epuck_obstacleavoidance_automoc
-.PHONY : epuck_obstacleavoidance_automoc
-
-# fast build rule for target.
-epuck_obstacleavoidance_automoc/fast:
-	$(MAKE) -f controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance_automoc.dir/build.make controllers/epuck_obstacleavoidance/CMakeFiles/epuck_obstacleavoidance_automoc.dir/build
-.PHONY : epuck_obstacleavoidance_automoc/fast
-
-#=============================================================================
 # Target rules for targets named foraging_loop_functions
 
 # Build rule for target.
@@ -395,6 +161,32 @@ foraging_loop_functions_automoc: cmake_check_build_system
 foraging_loop_functions_automoc/fast:
 	$(MAKE) -f loop_functions/foraging_loop_functions/CMakeFiles/foraging_loop_functions_automoc.dir/build.make loop_functions/foraging_loop_functions/CMakeFiles/foraging_loop_functions_automoc.dir/build
 .PHONY : foraging_loop_functions_automoc/fast
+
+#=============================================================================
+# Target rules for targets named foraging_loop_functionsv2
+
+# Build rule for target.
+foraging_loop_functionsv2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 foraging_loop_functionsv2
+.PHONY : foraging_loop_functionsv2
+
+# fast build rule for target.
+foraging_loop_functionsv2/fast:
+	$(MAKE) -f loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir/build.make loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir/build
+.PHONY : foraging_loop_functionsv2/fast
+
+#=============================================================================
+# Target rules for targets named foraging_loop_functionsv2_automoc
+
+# Build rule for target.
+foraging_loop_functionsv2_automoc: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 foraging_loop_functionsv2_automoc
+.PHONY : foraging_loop_functionsv2_automoc
+
+# fast build rule for target.
+foraging_loop_functionsv2_automoc/fast:
+	$(MAKE) -f loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2_automoc.dir/build.make loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2_automoc.dir/build
+.PHONY : foraging_loop_functionsv2_automoc/fast
 
 #=============================================================================
 # Target rules for targets named localization_loop_functions
@@ -430,28 +222,12 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... footbot_diffusion"
-	@echo "... footbot_diffusion_automoc"
-	@echo "... footbot_synchronization"
-	@echo "... footbot_synchronization_automoc"
-	@echo "... footbot_flocking"
-	@echo "... footbot_flocking_automoc"
-	@echo "... footbot_gripping"
-	@echo "... footbot_gripping_automoc"
 	@echo "... footbot_foraging"
 	@echo "... footbot_foraging_automoc"
-	@echo "... footbot_manualcontrol"
-	@echo "... footbot_manualcontrol_automoc"
-	@echo "... footbot_nn"
-	@echo "... footbot_nn_automoc"
-	@echo "... eyebot_circle"
-	@echo "... eyebot_circle_automoc"
-	@echo "... eyebot_flocking"
-	@echo "... eyebot_flocking_automoc"
-	@echo "... epuck_obstacleavoidance"
-	@echo "... epuck_obstacleavoidance_automoc"
 	@echo "... foraging_loop_functions"
 	@echo "... foraging_loop_functions_automoc"
+	@echo "... foraging_loop_functionsv2"
+	@echo "... foraging_loop_functionsv2_automoc"
 	@echo "... localization_loop_functions"
 	@echo "... localization_loop_functions_automoc"
 .PHONY : help
