@@ -43,6 +43,7 @@
   <!-- * Loop functions * -->
   <!-- *********************** -->
   <loop_functions library="build/loop_functions/localization_loop_functions/liblocalization_loop_functions" label="localization_loop_functions">
+    <localization/>
   </loop_functions>
 
   

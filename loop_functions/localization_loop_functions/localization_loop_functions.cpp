@@ -16,7 +16,7 @@ CLocalizationLoopFunctions::CLocalizationLoopFunctions() :
 
 void CLocalizationLoopFunctions::Init(TConfigurationNode& t_node) {
    try {
-      TConfigurationNode& tLocalization = GetNode(t_node, "localization");
+     TConfigurationNode& tLocalization = GetNode(t_node, "localization");
       /* Get a pointer to the floor entity */
       m_pcFloor = &GetSpace().GetFloorEntity();
    }
@@ -44,13 +44,8 @@ CColor CLocalizationLoopFunctions::GetFloorColor(const CVector2& c_position_on_p
    if(c_position_on_plane.GetX() < -1.0f) {
       return CColor::GRAY50;
    }
-   /*for(UInt32 i = 0; i < m_cFoodPos.size(); ++i) {
-   #   if((c_position_on_plane - m_cFoodPos[i]).SquareLength() < m_fFoodSquareRadius) {
-   #      return CColor::BLACK;
-      } 
-   }
-   */
    return CColor::WHITE;
+   m_pcFloor->SetChanged();
 }
 
 /****************************************/
