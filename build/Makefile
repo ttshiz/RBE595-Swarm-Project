@@ -163,32 +163,6 @@ foraging_loop_functions_automoc/fast:
 .PHONY : foraging_loop_functions_automoc/fast
 
 #=============================================================================
-# Target rules for targets named foraging_loop_functionsv2
-
-# Build rule for target.
-foraging_loop_functionsv2: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 foraging_loop_functionsv2
-.PHONY : foraging_loop_functionsv2
-
-# fast build rule for target.
-foraging_loop_functionsv2/fast:
-	$(MAKE) -f loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir/build.make loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir/build
-.PHONY : foraging_loop_functionsv2/fast
-
-#=============================================================================
-# Target rules for targets named foraging_loop_functionsv2_automoc
-
-# Build rule for target.
-foraging_loop_functionsv2_automoc: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 foraging_loop_functionsv2_automoc
-.PHONY : foraging_loop_functionsv2_automoc
-
-# fast build rule for target.
-foraging_loop_functionsv2_automoc/fast:
-	$(MAKE) -f loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2_automoc.dir/build.make loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2_automoc.dir/build
-.PHONY : foraging_loop_functionsv2_automoc/fast
-
-#=============================================================================
 # Target rules for targets named localization_loop_functions
 
 # Build rule for target.
@@ -226,8 +200,6 @@ help:
 	@echo "... footbot_foraging_automoc"
 	@echo "... foraging_loop_functions"
 	@echo "... foraging_loop_functions_automoc"
-	@echo "... foraging_loop_functionsv2"
-	@echo "... foraging_loop_functionsv2_automoc"
 	@echo "... localization_loop_functions"
 	@echo "... localization_loop_functions_automoc"
 .PHONY : help

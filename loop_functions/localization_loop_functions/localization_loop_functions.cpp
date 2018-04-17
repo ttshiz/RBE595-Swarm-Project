@@ -41,7 +41,8 @@ void CLocalizationLoopFunctions::Destroy() {
 /****************************************/
 
 CColor CLocalizationLoopFunctions::GetFloorColor(const CVector2& c_position_on_plane) {
-   if(c_position_on_plane.GetX() < -1.0f) {
+  if((c_position_on_plane.GetX() > -1.0f) and (c_position_on_plane.GetX() < 1.0f)
+     and (c_position_on_plane.GetY() > -1.0f) and (c_position_on_plane.GetY() < 1.0f)) {
       return CColor::GRAY50;
    }
    return CColor::WHITE;

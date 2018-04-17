@@ -12,10 +12,6 @@
 /home/ttshiz/swarm_project/build/loop_functions/foraging_loop_functions/CMakeFiles/rebuild_cache.dir
 /home/ttshiz/swarm_project/build/loop_functions/foraging_loop_functions/CMakeFiles/foraging_loop_functions.dir
 /home/ttshiz/swarm_project/build/loop_functions/foraging_loop_functions/CMakeFiles/foraging_loop_functions_automoc.dir
-/home/ttshiz/swarm_project/build/loop_functions/foraging_loop_functionsv2/CMakeFiles/edit_cache.dir
-/home/ttshiz/swarm_project/build/loop_functions/foraging_loop_functionsv2/CMakeFiles/rebuild_cache.dir
-/home/ttshiz/swarm_project/build/loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir
-/home/ttshiz/swarm_project/build/loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2_automoc.dir
 /home/ttshiz/swarm_project/build/loop_functions/localization_loop_functions/CMakeFiles/rebuild_cache.dir
 /home/ttshiz/swarm_project/build/loop_functions/localization_loop_functions/CMakeFiles/edit_cache.dir
 /home/ttshiz/swarm_project/build/loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir

@@ -42,8 +42,8 @@
   <!-- *********************** -->
   <!-- * Loop functions * -->
   <!-- *********************** -->
-  <loop_functions library="build/loop_functions/localization_loop_functions/liblocalization_loop_functions" label="localization_loop_functions">
-    <localization/>
+  <loop_functions library="build/loop_functions/localization_wall_loop_functions/liblocalization_wall_loop_functions" label="localization_wall_loop_functions">
+    <localizationWall/>
   </loop_functions>
 
   
@@ -67,6 +67,25 @@
     </box>
     <box id="wall_west" size="0.1,4,0.5" movable="false">
       <body position="-2,0,0" orientation="0,0,0" />
+    </box>
+
+    <!-- Building Walls
+    -->
+
+    <box id="building_north" size="2,0.1,0.5" movable="false">
+      <body position="0,1,0" orientation="0,0,0" />
+    </box>
+    <box id="building_south_1" size="0.5,0.1,0.5" movable="false">
+      <body position="0.75,-1,0" orientation="0,0,0" />
+    </box>
+    <box id="building_south_2" size="0.5,0.1,0.5" movable="false">
+      <body position="-0.75,-1,0" orientation="0,0,0" />
+    </box>
+    <box id="building_east" size="0.1,2,0.5" movable="false">
+      <body position="1,0,0" orientation="0,0,0" />
+    </box>
+    <box id="building_west" size="0.1,2,0.5" movable="false">
+      <body position="-1,0,0" orientation="0,0,0" />
     </box>
 
     <!--

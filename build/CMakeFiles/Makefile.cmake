@@ -18,7 +18,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../controllers/footbot_foraging/CMakeLists.txt"
   "../loop_functions/CMakeLists.txt"
   "../loop_functions/foraging_loop_functions/CMakeLists.txt"
-  "../loop_functions/foraging_loop_functionsv2/CMakeLists.txt"
   "../loop_functions/localization_loop_functions/CMakeLists.txt"
   "/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake"
@@ -140,7 +139,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "controllers/footbot_foraging/CMakeFiles/CMakeDirectoryInformation.cmake"
   "loop_functions/CMakeFiles/CMakeDirectoryInformation.cmake"
   "loop_functions/foraging_loop_functions/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "loop_functions/foraging_loop_functionsv2/CMakeFiles/CMakeDirectoryInformation.cmake"
   "loop_functions/localization_loop_functions/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
@@ -150,8 +148,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "controllers/footbot_foraging/CMakeFiles/footbot_foraging_automoc.dir/DependInfo.cmake"
   "loop_functions/foraging_loop_functions/CMakeFiles/foraging_loop_functions.dir/DependInfo.cmake"
   "loop_functions/foraging_loop_functions/CMakeFiles/foraging_loop_functions_automoc.dir/DependInfo.cmake"
-  "loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2.dir/DependInfo.cmake"
-  "loop_functions/foraging_loop_functionsv2/CMakeFiles/foraging_loop_functionsv2_automoc.dir/DependInfo.cmake"
   "loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/DependInfo.cmake"
   "loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions_automoc.dir/DependInfo.cmake"
   )
