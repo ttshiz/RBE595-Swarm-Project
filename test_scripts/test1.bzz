@@ -1,0 +1,12 @@
+function calculate_distance(rid){
+    get the sensor reading i.e the distance from one robot to another
+    return reading    
+}
+
+function broadcast_dist(rid, distance){
+    broadcast distance to know the location of each robot
+}
+
+function get_direction(rid, distance){
+    based on distance find a unit vector in the direction of each robot
+}
