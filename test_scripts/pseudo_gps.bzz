@@ -52,9 +52,33 @@ function avoid_obstacle() {
 # printing the contents of a table: a custom function
 function table_print(t) {
   foreach(t, function(key, value) {
-      log(key, " -> ", value)
+      log("Robot: ", value.rid, " X: ", value.x, " Y: ", value.y, " DIST: ", value.dist)
     })
 }
+
+function getRangeData() {
+	
+	r_data = {}
+	id_count = 0
+
+	v.foreach(
+		function(rid, data) {
+
+			# log("robot ", rid, ": ",
+	  #       	"x = ", data.x, ", ",
+	  #       	"y = ", data.y)
+	        
+			if (neighbors.get(rid)) {
+				# log(neighbors.get(rid))
+				r_data[id_count] = {.rid = rid, .x = data.x, .y = data.y, .dist = neighbors.get(rid).distance}
+				id_count = id_count + 1
+			}
+	    }
+    )
+
+    return r_data
+}
+
 
 function gpsBots() {
 
@@ -68,20 +92,13 @@ function gpsBots() {
 function rescueBots() {
 
 	# Get the number of keys in the structure
-	log("The vstig has ", v.size(), " elements")
+	# log("The vstig has ", v.size(), " elements")
 
-	# table_print(v)
+	range_data = getRangeData()
 
-	# log(v)
-
-
-	# Iteration (rid is the neighbor's id)
-	v.foreach(
-	  function(rid, data) {
-	    log("robot ", rid, ": ",
-	        "x = ", data.x, ", ",
-	        "y = ", data.y) })
-	}
+	log(size(range_data))
+	table_print(range_data)
+}
 
 
  
