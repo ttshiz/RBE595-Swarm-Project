@@ -7,7 +7,8 @@
 
 
 #include <buzz/buzzvm.h>
-#include <buzz/argos/buzz_controller_footbot.h>
+#include <buzz/argos/buzz_controller_footbot.h> 
+/**#include <buzz/argos/buzz_controller.h> */
 
 #include <list>
 #include <sstream>

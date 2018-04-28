@@ -3,7 +3,8 @@
 #include <argos3/core/utility/configuration/argos_configuration.h>
 
 #include <buzz/buzzvm.h>
-#include <buzz/argos/buzz_controller_footbot.h>
+#include <buzz/argos/buzz_controller_footbot.h> 
+/**#include <buzz/argos/buzz_controller.h> */
 
 #include <list>
 #include <sstream>
@@ -89,20 +90,20 @@ void CLocalizationLoopFunctions::PostStep() {
       m_cQueueOutFile << "," << buzzoutmsg_queue_size(tBuzzVM);
       /* Update VS data */
       if(!m_vecDone[i]) {
-	buzzvm_pushs(tBuzzVM, buzzvm_string_register(tBuzzVM, "vs_value", 0));
+	buzzvm_pushs(tBuzzVM, buzzvm_string_register(tBuzzVM, "est_location", 0));
 	buzzvm_gload(tBuzzVM);
 	tObj = buzzvm_stack_at(tBuzzVM, 1);
 	buzzvm_pop(tBuzzVM);
-	            m_vecDone[i] =
-		                     tObj->o.type == BUZZTYPE_INT &&
-		      tObj->i.value == m_vecControllers.size() - 1;
-		    m_bDone &= m_vecDone[i];
-		    m_cOutput << ","
-			       << (tObj->o.type == BUZZTYPE_INT ? tObj->i.value : 0);
+	m_vecDone[i] =
+	  tObj->o.type == BUZZTYPE_INT &&
+	  tObj->i.value == m_vecControllers.size() - 1;
+	m_bDone &= m_vecDone[i];
+	m_cOutput << ","
+		  << (tObj->o.type == BUZZTYPE_INT ? tObj->i.value : 0);
       }
       else {
 	m_cOutput << "," << m_vecControllers.size() - 1;
-      }
+	} 
     }
   }
   /* Close the record */

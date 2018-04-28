@@ -5,6 +5,10 @@ include "include/vec2.bzz"
 # A unique id (1 here) must be passed
 v = stigmergy.create(1)
 
+# Create output variables
+est_location = math.vec2.new(0.0, 0.0)
+act_location = math.vec2.new(0.0, 0.0)
+
 function avoid_obstacle() {
 
 	# Threshold for avoiding obstacle 
@@ -112,6 +116,10 @@ function localize(x1, y1, r1, x2, y2, r2, x3, y3, r3) {
 	tript = math.vec2.add(P1, math.vec2.add(xex, yey))
 
 	log("Tript.x: ", tript.x, " Tript.y: ", tript.y)
+	
+	# Update output variables
+	est_location = tript 
+	#act_location
 
 	return tript
 }
