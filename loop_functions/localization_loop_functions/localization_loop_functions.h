@@ -5,6 +5,15 @@
 #include <argos3/core/simulator/entity/floor_entity.h>
 #include <argos3/core/utility/math/range.h>
 
+
+#include <buzz/buzzvm.h>
+#include <buzz/argos/buzz_controller_footbot.h>
+
+#include <list>
+#include <sstream>
+#include <string>
+
+
 using namespace argos;
 
 class CLocalizationLoopFunctions : public CLoopFunctions {
@@ -18,11 +27,24 @@ public:
    virtual void Reset();
    virtual void Destroy();
    virtual CColor GetFloorColor(const CVector2& c_position_on_plane);
+
+   virtual void PostStep();
    
 private:
 
    CRange<Real> m_cLocalizationArenaSideX, m_cLocalizationArenaSideY;
    CFloorEntity* m_pcFloor;
+
+   void OpenFile(std::ofstream& c_stream, const std::string& str_prefix);
+   void CloseFile(std::ofstream& c_stream);
+
+   std::string m_strOutput;
+   bool m_bDone;
+   std::ofstream m_cOutput;
+   std::ofstream m_cQueueOutFile;
+   std::vector<CBuzzControllerFootBot*> m_vecControllers;
+   std::vector<bool> m_vecDone;
+   
 };
 
 #endif
