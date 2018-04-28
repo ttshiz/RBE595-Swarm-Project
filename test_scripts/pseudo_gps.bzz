@@ -70,13 +70,50 @@ function getRangeData() {
 	        
 			if (neighbors.get(rid)) {
 				# log(neighbors.get(rid))
-				r_data[id_count] = {.rid = rid, .x = data.x, .y = data.y, .dist = neighbors.get(rid).distance}
+				r_data[id_count] = {.rid = rid, .x = data.x, .y = data.y, .dist = neighbors.get(rid).distance/100}
 				id_count = id_count + 1
 			}
 	    }
     )
 
     return r_data
+}
+
+function localize(x1, y1, r1, x2, y2, r2, x3, y3, r3) {
+	P1 = math.vec2.new(x1, y1)
+	P2 = math.vec2.new(x2, y2)
+	P3 = math.vec2.new(x3, y3)
+
+	ex1 = math.vec2.sub(P2, P1)
+	# log(ex1.x, ex1.y)
+	ex = math.vec2.scale(ex1, 1/math.vec2.length(ex1))
+	# ex = math.vec2.norm(ex1)
+	# log("*")
+
+	p3_p1 = math.vec2.sub(P3, P1)
+
+	i = math.vec2.dot(ex, p3_p1)
+
+	ey1 = math.vec2.sub(p3_p1, math.vec2.scale(ex, i))
+	ey = math.vec2.scale(ey1, 1/math.vec2.length(ey1))
+	# ey = math.vec2.norm(ey1)
+
+	d = math.vec2.length(ex1)
+
+	j = math.vec2.dot(ey, p3_p1)
+
+	x = (r1^2 - r2^2 + d^2)/(2*d)
+
+	y = ((r1^2 - r3^2 + i^2 + j^2)/(2*j)) - ((i/j)*x)
+
+	xex = math.vec2.scale(ex, x)
+	yey = math.vec2.scale(ey, y)
+
+	tript = math.vec2.add(P1, math.vec2.add(xex, yey))
+
+	log("Tript.x: ", tript.x, " Tript.y: ", tript.y)
+
+	return tript
 }
 
 
@@ -98,6 +135,14 @@ function rescueBots() {
 
 	log(size(range_data))
 	table_print(range_data)
+
+	if (size(range_data) >= 3) {
+		# log("Rangedata[1]", range_data[1])
+		myloc = localize(range_data[0].x, range_data[0].y, range_data[0].dist, range_data[1].x, range_data[1].y, range_data[1].dist, range_data[2].x, range_data[2].y, range_data[2].dist)
+	}
+
+	# localize(1,0,1,-1,0,1,0,1,1)
+	# localize(1.56373, 1.78885, 2.28862, 1.66637, 1.55549, 2.11412, 1.32756, 1.45889, 1.89937)
 }
 
 
