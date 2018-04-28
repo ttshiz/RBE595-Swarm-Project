@@ -15,6 +15,16 @@ argos3/core/simulator/simulator.h
 -
 argos3/core/utility/configuration/argos_configuration.h
 -
+buzz/buzzvm.h
+-
+buzz/argos/buzz_controller_footbot.h
+-
+list
+-
+sstream
+-
+string
+-
 
 /home/ttshiz/swarm_project/loop_functions/localization_loop_functions/localization_loop_functions.h
 argos3/core/simulator/loop_functions.h
@@ -22,5 +32,15 @@ argos3/core/simulator/loop_functions.h
 argos3/core/simulator/entity/floor_entity.h
 -
 argos3/core/utility/math/range.h
+-
+buzz/buzzvm.h
+-
+buzz/argos/buzz_controller_footbot.h
+-
+list
+-
+sstream
+-
+string
 -
 
