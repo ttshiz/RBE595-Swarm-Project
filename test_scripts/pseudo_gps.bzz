@@ -1,0 +1,152 @@
+include "include/vec2.bzz"
+
+	
+# Create a new virtual stigmergy
+# A unique id (1 here) must be passed
+v = stigmergy.create(1)
+
+function avoid_obstacle() {
+
+	# Threshold for avoiding obstacle 
+	THRESHOLD = 0.1
+
+	# Wheel velocities
+	VEL_LEFT = 8.0
+	VEL_RIGHT = 8.0
+
+	# Vector to store sum of all proximity sensors 
+	var dist_vec = math.vec2.new(0.0, 0.0)
+
+	# Loop variable
+	var i = 0
+	while(i <= 7){
+		# Convert proximity reading to a vector
+		var prox_sense = math.vec2.newp(proximity[i].value, proximity[i].angle)
+		# Sum all proximity vlaues
+		dist_vec = math.vec2.add(dist_vec, prox_sense)
+		i = i+1
+	}
+
+	# Some print lines to help tune THRESHOLD
+	# Print the distance vector 
+	# log("Rob: ", id, " d.x: ", dist_vec.x, " d.y: ", dist_vec.y)
+
+	# Print the distance vector length 
+	# log("Rob: ", id, " d: ", math.vec2.length(dist_vec))
+
+	# If there is nothing close-by
+	if (math.vec2.length(dist_vec) < THRESHOLD){
+		# Keep going straight
+		set_wheels(VEL_LEFT, VEL_RIGHT)
+	} else {
+		if(math.vec2.angle(dist_vec) > 0.0){
+			# Turn right
+			set_wheels(VEL_LEFT, 0.0)
+		} else {
+			# Turn left
+			set_wheels(0.0, VEL_RIGHT)
+		}
+	}
+}
+
+# printing the contents of a table: a custom function
+function table_print(t) {
+  foreach(t, function(key, value) {
+      log("Robot: ", value.rid, " X: ", value.x, " Y: ", value.y, " DIST: ", value.dist)
+    })
+}
+
+function getRangeData() {
+	
+	r_data = {}
+	id_count = 0
+
+	v.foreach(
+		function(rid, data) {
+
+			# log("robot ", rid, ": ",
+	  #       	"x = ", data.x, ", ",
+	  #       	"y = ", data.y)
+	        
+			if (neighbors.get(rid)) {
+				# log(neighbors.get(rid))
+				r_data[id_count] = {.rid = rid, .x = data.x, .y = data.y, .dist = neighbors.get(rid).distance}
+				id_count = id_count + 1
+			}
+	    }
+    )
+
+    return r_data
+}
+
+
+function gpsBots() {
+
+	# Write a (key,value) entry into the structure
+	v.put(id, {.x = pose.position.x, .y = pose.position.y})
+
+	avoid_obstacle()
+
+}
+
+function rescueBots() {
+
+	# Get the number of keys in the structure
+	# log("The vstig has ", v.size(), " elements")
+
+	range_data = getRangeData()
+
+	log(size(range_data))
+	table_print(range_data)
+}
+
+
+ 
+# Executed at init time
+function init() {
+
+	# Divide the robots into three swarms
+	# Swarm 1: Stranded robot
+	s1 = swarm.create(1)
+	s1.select(id == 0)
+
+	# Swarm 2: rescue robot
+	s2 = swarm.create(2)
+	s2.select(id == 1)
+
+	# Swarm 3: GPS robots
+	s3 = swarm.create(3)
+	s3.select(id > 1)
+
+	if (s1.in()) {
+		# Color 
+		set_leds(255,0,0)
+	} 
+
+	if (s2.in()) {
+		# Color green
+		set_leds(0,255,0)
+	}
+
+	if (s3.in()){
+		# Color blue
+		set_leds(0,0,255)
+	} 
+
+}
+ 
+# Executed every time step
+function step() {
+	# # Call avoid obstacle function
+	# s3.exec(avoid_obstacle)	
+
+	# Call gpsBots function
+	s3.exec(gpsBots)
+
+	# Call rescueBots function
+	s2.exec(rescueBots)	
+}
+ 
+# Execute at exit
+function destroy() {
+}
