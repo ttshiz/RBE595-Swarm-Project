@@ -1,10 +1,33 @@
 include "include/vec2.bzz"
 
+# Actual position of the rescue bot
+X = 0
+Y = 0
+
+# Estimated position of the rescue bot
+X_EST = 0
+Y_EST = 0
+
+# Average of estimated position of the rescue bot in one step
+X_AVG = 0
+Y_AVG = 0
+
+# MIN and MAX of estimated position of the rescue bot in one step
+X_MIN = 0
+Y_MIN = 0
+
+# Number of GPS accessible robots
+NUM_GPSBOTS = 0
+
+# Number of GPS accessible robots that are moving
+NUM_MOVING_GPSBOTS = 0
+
 	
-# Create a new virtual stigmergy
-# A unique id (1 here) must be passed
+# Stigmergy GPS beacon table
+# The GPS beacon bots put their location in this table
 v = stigmergy.create(1)
 
+# Function to avoid obstacle
 function avoid_obstacle() {
 
 	# Threshold for avoiding obstacle 
@@ -49,7 +72,7 @@ function avoid_obstacle() {
 	}
 }
 
-# printing the contents of a table: a custom function
+# Function to print contents 
 function table_print(t) {
   foreach(t, function(key, value) {
       log("Robot: ", value.rid, " X: ", value.x, " Y: ", value.y, " DIST: ", value.dist)
