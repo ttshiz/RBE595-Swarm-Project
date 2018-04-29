@@ -86,7 +86,10 @@ void CLocalizationLoopFunctions::PostStep() {
       m_cOutput << "," << id << "_X" << "," << id << "_Y"
 		<< "," << id << "_X_EST" << "," << id << "_Y_EST"
 		<< "," << id << "_X_AVG" << "," << id << "_Y_AVG"
-		<< "," << id << "_X_MIN" << "," << id << "_Y_MIN";
+		<< "," << id << "_X_MIN" << "," << id << "_Y_MIN"
+		<< "," << id << "_X_MAX" << "," << id << "_Y_MAX"
+		<< "NUM_GPSBOTS" << "FRAC_MOVING_GPSBOTS"
+		<< "NUM_MOVING_GPSBOTS" << "NUM_CONNECTED_GPSBOTS";
     }
     m_cOutput << std::endl;
   }
@@ -106,7 +109,8 @@ void CLocalizationLoopFunctions::PostStep() {
     if(tBuzzVM->state != BUZZVM_STATE_ERROR) {
       /* Output output queue size */
       m_cQueueOutFile << "," << buzzoutmsg_queue_size(tBuzzVM);
-      const char *vars[] = {"X", "Y","X_EST", "Y_EST", "X_AVG", "Y_AVG", "X_MIN", "Y_MIN" };
+      const char *vars[] = {"X", "Y","X_EST", "Y_EST", "X_AVG", "Y_AVG", "X_MIN", "Y_MIN", "X_MAX"
+			    , "Y_MAX", "FRAC_MOVING_GPSBOTS"};
       m_cOutput << ",";
       for(int v = 0; v < 8; v++) {
 	buzzvm_pushs(tBuzzVM, buzzvm_string_register(tBuzzVM, vars[v], 0));
@@ -124,7 +128,7 @@ void CLocalizationLoopFunctions::PostStep() {
 	}
       }
       m_cOutput << ",";
-      const char *int_vars[] = {"NUM_GPSBOTS", "NUM_MOVING_GPSBOTS"};
+      const char *int_vars[] = {"NUM_GPSBOTS", "NUM_MOVING_GPSBOTS", "NUM_CONNECTED_GPSBOTS"};
       for(int v = 0; v < 2; v++) {
 	buzzvm_pushs(tBuzzVM, buzzvm_string_register(tBuzzVM, int_vars[v], 0));
 	buzzvm_gload(tBuzzVM);
