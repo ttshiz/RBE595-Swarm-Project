@@ -225,6 +225,10 @@ function rescueBots() {
 
 		}
 
+		# Actual Position of the rescue bot
+		X = pose.position.x
+		Y = pose.position.y
+
 		# Average Position
 		X_AVG = est_pos_sum.x/idx
 		Y_AVG = est_pos_sum.y/idx

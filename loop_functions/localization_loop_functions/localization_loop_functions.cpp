@@ -2,8 +2,11 @@
 #include <argos3/core/simulator/simulator.h>
 #include <argos3/core/utility/configuration/argos_configuration.h>
 
+#include <argos3/plugins/robots/kheperaiv/control_interface/buzz_controller_kheperaiv.h>
 #include <buzz/buzzvm.h>
-#include <buzz/argos/buzz_controller_footbot.h>
+#include <argos3/plugins/robots/kheperaiv/simulator/kheperaiv_entity.h>
+/*#include <buzz/argos/buzz_controller_footbot.h>
+#include <buzz/argos/buzz_controller.h> */
 
 #include <list>
 #include <sstream>
@@ -33,7 +36,7 @@ void CLocalizationLoopFunctions::Init(TConfigurationNode& t_node) {
     m_pcFloor = &GetSpace().GetFloorEntity();
     /* Get the output file name from XML */
     GetNodeAttribute(tLocalization, "output", m_strOutput);
-      
+    Reset();
   }
   catch(CARGoSException& ex) {
     THROW_ARGOSEXCEPTION_NESTED("Error parsing loop functions!", ex);
@@ -46,6 +49,7 @@ void CLocalizationLoopFunctions::Init(TConfigurationNode& t_node) {
 void CLocalizationLoopFunctions::Reset() {
   OpenFile(m_cQueueOutFile, QUEUEFILE);
   OpenFile(m_cOutput,      FILE_PREFIX);
+  headers_output = false;
 }
 
 /****************************************/
@@ -63,45 +67,82 @@ void CLocalizationLoopFunctions::Destroy() {
 CColor CLocalizationLoopFunctions::GetFloorColor(const CVector2& c_position_on_plane) {
   if((c_position_on_plane.GetX() > -1.0f) && (c_position_on_plane.GetX() < 1.0f)
      && (c_position_on_plane.GetY() > -1.0f) && (c_position_on_plane.GetY() < 1.0f)) {
-      return CColor::GRAY50;
-   }
-   return CColor::WHITE;
+    return CColor::GRAY50;
+  }
+  return CColor::WHITE;
 }
 
 /****************************************/
 /****************************************/
 
 void CLocalizationLoopFunctions::PostStep() {
+  CSpace::TMapPerType kmap = GetSpace().GetEntitiesByType("kheperaiv");
+  
+  if (headers_output == false){
+    headers_output = true;
+    m_cOutput << "time_step";
+    for(auto it = kmap.begin(); it != kmap.end(); ++it) {
+      std::string id = any_cast<CKheperaIVEntity*>(it->second)->GetId();
+      m_cOutput << "," << id << "_X" << "," << id << "_Y"
+		<< "," << id << "_X_EST" << "," << id << "_Y_EST"
+		<< "," << id << "_X_AVG" << "," << id << "_Y_AVG"
+		<< "," << id << "_X_MIN" << "," << id << "_Y_MIN"
+		<< "," << id << "_X_MAX" << "," << id << "_Y_MAX"
+		<< "," << id << "FRAC_MOVING_GPSBOTS" << "," << id << "NUM_GPSBOTS" 
+		<< "," << id << "NUM_MOVING_GPSBOTS" << "," << id << "NUM_CONNECTED_GPSBOTS";
+    }
+    m_cOutput << std::endl;
+  }
+ 
   /* Output the current time step */
   m_cQueueOutFile << GetSpace().GetSimulationClock();
   m_cOutput << GetSpace().GetSimulationClock();
   /* Go through the robots */
-  m_bDone = true;
   buzzvm_t tBuzzVM;
   buzzobj_t tObj;
   /* for each robot */
-  for(size_t i = 0; i < m_vecControllers.size(); ++i) {
+  /*m_cOutput << ", numKBots " << kmap.size(); */
+  for(auto it = kmap.begin(); it != kmap.end(); ++it) {
     /* Get reference to the VM */
-    tBuzzVM = m_vecControllers[i]->GetBuzzVM();
+    tBuzzVM = dynamic_cast<CBuzzController&>(any_cast<CKheperaIVEntity*>(it->second)->GetControllableEntity().GetController()).GetBuzzVM();
     /* Make sure no error occurred in the script */
     if(tBuzzVM->state != BUZZVM_STATE_ERROR) {
       /* Output output queue size */
       m_cQueueOutFile << "," << buzzoutmsg_queue_size(tBuzzVM);
-      /* Update VS data */
-      if(!m_vecDone[i]) {
-	buzzvm_pushs(tBuzzVM, buzzvm_string_register(tBuzzVM, "vs_value", 0));
+      const char *vars[] = {"X", "Y","X_EST", "Y_EST", "X_AVG", "Y_AVG", "X_MIN", "Y_MIN", "X_MAX"
+			    , "Y_MAX", "FRAC_MOVING_GPSBOTS"};
+      m_cOutput << ",";
+      for(int v = 0; v < 11; v++) {
+	buzzvm_pushs(tBuzzVM, buzzvm_string_register(tBuzzVM, vars[v], 0));
 	buzzvm_gload(tBuzzVM);
 	tObj = buzzvm_stack_at(tBuzzVM, 1);
 	buzzvm_pop(tBuzzVM);
-	            m_vecDone[i] =
-		                     tObj->o.type == BUZZTYPE_INT &&
-		      tObj->i.value == m_vecControllers.size() - 1;
-		    m_bDone &= m_vecDone[i];
-		    m_cOutput << ","
-			       << (tObj->o.type == BUZZTYPE_INT ? tObj->i.value : 0);
+	if (tObj->o.type == BUZZTYPE_FLOAT){
+	  /*m_cOutput << vars[v] << "=" << tObj->f.value;*/
+	  m_cOutput << tObj->f.value;
+	  if(v!=10) {
+	    m_cOutput << ",";
+	  }
+	} else {
+	  printf("ERROR, %s was a %d", vars[v], tObj->o.type);
+	}
       }
-      else {
-	m_cOutput << "," << m_vecControllers.size() - 1;
+      m_cOutput << ",";
+      const char *int_vars[] = {"NUM_GPSBOTS", "NUM_MOVING_GPSBOTS", "NUM_CONNECTED_GPSBOTS"};
+      for(int v = 0; v < 3; v++) {
+	buzzvm_pushs(tBuzzVM, buzzvm_string_register(tBuzzVM, int_vars[v], 0));
+	buzzvm_gload(tBuzzVM);
+	tObj = buzzvm_stack_at(tBuzzVM, 1);
+	buzzvm_pop(tBuzzVM);
+	if (tObj->o.type == BUZZTYPE_INT){
+	  /*m_cOutput << vars[v] << "=" << tObj->f.value;*/
+	  m_cOutput << tObj->i.value;
+	  if(v!=2) {
+	    m_cOutput << ",";
+	  }
+	} else {
+	  printf("ERROR, %s was a %d", int_vars[v], tObj->o.type);
+	}
       }
     }
   }
