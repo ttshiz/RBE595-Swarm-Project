@@ -1,4 +1,4 @@
-# Install script for directory: /home/ttshiz/swarm_project/controllers
+# Install script for directory: /media/amey/OS/The_Works/WPI/2018_Spring/SWARM/Swarm_project/RBE595-Swarm-Project/controllers
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/ttshiz/swarm_project/build/controllers/footbot_foraging/cmake_install.cmake")
+  include("/media/amey/OS/The_Works/WPI/2018_Spring/SWARM/Swarm_project/RBE595-Swarm-Project/build/controllers/footbot_foraging/cmake_install.cmake")
 
 endif()
 

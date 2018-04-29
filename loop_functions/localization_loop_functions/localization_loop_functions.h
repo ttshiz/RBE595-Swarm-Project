@@ -6,8 +6,10 @@
 #include <argos3/core/utility/math/range.h>
 
 
+#include <argos3/plugins/robots/kheperaiv/control_interface/buzz_controller_kheperaiv.h>
 #include <buzz/buzzvm.h>
-#include <buzz/argos/buzz_controller_footbot.h>
+/*#include <buzz/argos/buzz_controller_footbot.h>
+#include <buzz/argos/buzz_controller.h> */
 
 #include <list>
 #include <sstream>
@@ -39,12 +41,9 @@ private:
    void CloseFile(std::ofstream& c_stream);
 
    std::string m_strOutput;
-   bool m_bDone;
    std::ofstream m_cOutput;
    std::ofstream m_cQueueOutFile;
-   std::vector<CBuzzControllerFootBot*> m_vecControllers;
-   std::vector<bool> m_vecDone;
-   
+   bool headers_output;
 };
 
 #endif

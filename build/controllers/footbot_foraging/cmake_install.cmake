@@ -1,4 +1,4 @@
-# Install script for directory: /home/ttshiz/swarm_project/controllers/footbot_foraging
+# Install script for directory: /media/amey/OS/The_Works/WPI/2018_Spring/SWARM/Swarm_project/RBE595-Swarm-Project/controllers/footbot_foraging
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
