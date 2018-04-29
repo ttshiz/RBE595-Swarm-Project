@@ -17,10 +17,16 @@ X_MIN = 0
 Y_MIN = 0
 
 # Number of GPS accessible robots
-NUM_GPSBOTS = 0
+NUM_GPSBOTS = 16
 
-# Number of GPS accessible robots that are moving
-NUM_MOVING_GPSBOTS = 0
+# Fraction of moving robots
+FRAC_MOVING_GPSBOTS = 0.3
+
+# Number of GPS robots that are moving
+NUM_MOVING_GPSBOTS = math.floor(NUM_GPSBOTS * FRAC_MOVING_GPSBOTS)
+
+# Number of connected GPS bots
+NUM_CONNECTED_GPSBOTS = 0
 
 	
 # Stigmergy GPS beacon table
@@ -72,13 +78,14 @@ function avoid_obstacle() {
 	}
 }
 
-# Function to print contents 
+# Function to print contents of the distance table
 function table_print(t) {
   foreach(t, function(key, value) {
       log("Robot: ", value.rid, " X: ", value.x, " Y: ", value.y, " DIST: ", value.dist)
     })
 }
 
+# Function to convert GPS data from stigmergy table to a manageable format
 function getRangeData() {
 	
 	r_data = {}
@@ -87,13 +94,15 @@ function getRangeData() {
 	v.foreach(
 		function(rid, data) {
 
-			# log("robot ", rid, ": ",
-	  #       	"x = ", data.x, ", ",
-	  #       	"y = ", data.y)
+			# Debud print statement
+			# log("robot ", rid, ": ", "x = ", data.x, ", ", "y = ", data.y)
 	        
+	        # If the data in the stigmergy table is valid.
+	        # i.e. The rescue bot has an active connection to the current GPS bot
 			if (neighbors.get(rid)) {
-				# log(neighbors.get(rid))
+				# Log the current tuple to the table (distances are in meters)
 				r_data[id_count] = {.rid = rid, .x = data.x, .y = data.y, .dist = neighbors.get(rid).distance/100}
+				# Increment the key index
 				id_count = id_count + 1
 			}
 	    }
@@ -102,16 +111,15 @@ function getRangeData() {
     return r_data
 }
 
+# Function to trilaterate the location based on information from 3 beacons
 function localize(x1, y1, r1, x2, y2, r2, x3, y3, r3) {
+
 	P1 = math.vec2.new(x1, y1)
 	P2 = math.vec2.new(x2, y2)
 	P3 = math.vec2.new(x3, y3)
 
 	ex1 = math.vec2.sub(P2, P1)
-	# log(ex1.x, ex1.y)
 	ex = math.vec2.scale(ex1, 1/math.vec2.length(ex1))
-	# ex = math.vec2.norm(ex1)
-	# log("*")
 
 	p3_p1 = math.vec2.sub(P3, P1)
 
@@ -119,7 +127,6 @@ function localize(x1, y1, r1, x2, y2, r2, x3, y3, r3) {
 
 	ey1 = math.vec2.sub(p3_p1, math.vec2.scale(ex, i))
 	ey = math.vec2.scale(ey1, 1/math.vec2.length(ey1))
-	# ey = math.vec2.norm(ey1)
 
 	d = math.vec2.length(ex1)
 
@@ -132,38 +139,92 @@ function localize(x1, y1, r1, x2, y2, r2, x3, y3, r3) {
 	xex = math.vec2.scale(ex, x)
 	yey = math.vec2.scale(ey, y)
 
-	tript = math.vec2.add(P1, math.vec2.add(xex, yey))
+	tri_pt = math.vec2.add(P1, math.vec2.add(xex, yey))
 
-	log("Tript.x: ", tript.x, " Tript.y: ", tript.y)
+	# log("Tript.x: ", tri_pt.x, " Tript.y: ", tri_pt.y)
 
-	return tript
+	return tri_pt
 }
 
 
+# Step function for the GPS bots
 function gpsBots() {
 
-	# Write a (key,value) entry into the structure
+	# Every GPS bot writes its location to the stigmergy table
 	v.put(id, {.x = pose.position.x, .y = pose.position.y})
 
-	avoid_obstacle()
-
+	# avoid_obstacle()
 }
+
 
 function rescueBots() {
 
-	# Get the number of keys in the structure
+	# Get the number of tuples in the stigmergy table
 	# log("The vstig has ", v.size(), " elements")
 
+	# Get the range data from beacons
 	range_data = getRangeData()
 
-	log(size(range_data))
-	table_print(range_data)
+	# Print GPS beacon data
+	# table_print(range_data)
 
-	if (size(range_data) >= 3) {
-		# log("Rangedata[1]", range_data[1])
-		myloc = localize(range_data[0].x, range_data[0].y, range_data[0].dist, range_data[1].x, range_data[1].y, range_data[1].dist, range_data[2].x, range_data[2].y, range_data[2].dist)
+	# Print number of GPS bots connected
+	NUM_CONNECTED_GPSBOTS = size(range_data) 
+	log("Total Connected GPS bots: ", NUM_CONNECTED_GPSBOTS)
+
+
+	if (NUM_CONNECTED_GPSBOTS >= 3) {
+		# Index for the loop
+		idx = 0
+
+		# Estimated position vector
+		est_pos = math.vec2.new(0.0, 0.0)
+
+		# Sum of estimated position vector
+		est_pos_sum = math.vec2.new(0.0, 0.0)
+
+		# Reset position variables
+		X_EST = 0
+		Y_EST = 0
+
+		X_MIN = 0
+		Y_MIN = 0
+
+		X_MAX = 0
+		Y_MAX = 0
+
+		# Iterate taking 3 GPS beacons at a time
+		while (idx <= (NUM_CONNECTED_GPSBOTS - 3)) {
+
+			# Trilaterate position
+			est_pos = localize(range_data[idx].x, range_data[idx].y, range_data[idx].dist, range_data[idx + 1].x, range_data[idx + 1].y, range_data[idx + 1].dist, range_data[idx + 2].x, range_data[idx + 2].y, range_data[idx + 2].dist)
+			X_EST = est_pos.x
+			Y_EST = est_pos.y
+
+			# Get range of the extimated values
+			X_MIN = math.min(X_MIN, X_EST)
+			X_MAX = math.max(X_MAX, X_EST)
+
+			Y_MIN = math.min(Y_MIN, Y_EST)
+			Y_MAX = math.max(Y_MAX, Y_EST)
+
+			# Sum all estimated positions
+			est_pos_sum = math.vec2.add(est_pos_sum, est_pos)
+
+			idx = idx + 1
+
+		}
+
+		# Average Position
+		X_AVG = est_pos_sum.x/idx
+		Y_AVG = est_pos_sum.y/idx
+
+		# Print the average estimated position
+		log("X_AVG: ", X_AVG, " Y_AVG: ", Y_AVG)
+
 	}
 
+	# Test calls for localize
 	# localize(1,0,1,-1,0,1,0,1,1)
 	# localize(1.56373, 1.78885, 2.28862, 1.66637, 1.55549, 2.11412, 1.32756, 1.45889, 1.89937)
 }
@@ -182,9 +243,13 @@ function init() {
 	s2 = swarm.create(2)
 	s2.select(id == 1)
 
-	# Swarm 3: GPS robots
+	# Swarm 3: Moving GPS robots
 	s3 = swarm.create(3)
-	s3.select(id > 1)
+	s3.select((id > 1) and (id <= (NUM_MOVING_GPSBOTS + 1)))
+
+	# Swarm 4: Stationary GPS robots
+	s4 = swarm.create(4)
+	s4.select(id > (NUM_MOVING_GPSBOTS + 1))
 
 	if (s1.in()) {
 		# Color 
@@ -199,20 +264,30 @@ function init() {
 	if (s3.in()){
 		# Color blue
 		set_leds(0,0,255)
+	}
+
+	if (s4.in()){
+		# Color blue
+		set_leds(0,128,128)
 	} 
 
 }
  
 # Executed every time step
 function step() {
-	# # Call avoid obstacle function
-	# s3.exec(avoid_obstacle)	
 
 	# Call gpsBots function
 	s3.exec(gpsBots)
 
+	# Call gpsBots function
+	s4.exec(gpsBots)
+
+	# Call avoid obstacle function for moving GPSbots
+	s3.exec(avoid_obstacle)
+
 	# Call rescueBots function
 	s2.exec(rescueBots)	
+	# s2.exec(avoid_obstacle)
 }
  
 # Execute at exit
