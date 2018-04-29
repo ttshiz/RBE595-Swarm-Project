@@ -1,16 +1,33 @@
 include "include/vec2.bzz"
 
+# Actual position of the rescue bot
+X = 0
+Y = 0
+
+# Estimated position of the rescue bot
+X_EST = 0
+Y_EST = 0
+
+# Average of estimated position of the rescue bot in one step
+X_AVG = 0
+Y_AVG = 0
+
+# MIN and MAX of estimated position of the rescue bot in one step
+X_MIN = 0
+Y_MIN = 0
+
+# Number of GPS accessible robots
+NUM_GPSBOTS = 0
+
+# Number of GPS accessible robots that are moving
+NUM_MOVING_GPSBOTS = 0
+
 	
-# Create a new virtual stigmergy
-# A unique id (1 here) must be passed
+# Stigmergy GPS beacon table
+# The GPS beacon bots put their location in this table
 v = stigmergy.create(1)
 
-# Create output variables
-est_x = -1.0
-est_y = -1.0
-act_x = -1.0
-act_y = -1.0
-
+# Function to avoid obstacle
 function avoid_obstacle() {
 
 	# Threshold for avoiding obstacle 
@@ -55,7 +72,7 @@ function avoid_obstacle() {
 	}
 }
 
-# printing the contents of a table: a custom function
+# Function to print contents 
 function table_print(t) {
   foreach(t, function(key, value) {
       log("Robot: ", value.rid, " X: ", value.x, " Y: ", value.y, " DIST: ", value.dist)
@@ -118,13 +135,6 @@ function localize(x1, y1, r1, x2, y2, r2, x3, y3, r3) {
 	tript = math.vec2.add(P1, math.vec2.add(xex, yey))
 
 	log("Tript.x: ", tript.x, " Tript.y: ", tript.y)
-	
-	# Update output variables
-	est_x = tript.x 
-	est_y = tript.y
-	act_x = pose.position.x
-	act_y = pose.position.y
-	log("Act.x ", act_x, "Act.y ", act_y)
 
 	return tript
 }
@@ -146,8 +156,8 @@ function rescueBots() {
 
 	range_data = getRangeData()
 
-	#log(size(range_data))
-	#table_print(range_data)
+	log(size(range_data))
+	table_print(range_data)
 
 	if (size(range_data) >= 3) {
 		# log("Rangedata[1]", range_data[1])
@@ -156,6 +166,29 @@ function rescueBots() {
 
 	# localize(1,0,1,-1,0,1,0,1,1)
 	# localize(1.56373, 1.78885, 2.28862, 1.66637, 1.55549, 2.11412, 1.32756, 1.45889, 1.89937)
+
+	# Update variables	
+	# Actual position of the rescue bot
+	X = pose.position.x
+	Y = pose.position.y
+
+	# Estimated position of the rescue bot
+	X_EST = myloc.x
+	Y_EST = myloc.y
+
+	# Average of estimated position of the rescue bot in one step
+	X_AVG = 0
+	Y_AVG = 0
+
+	# MIN and MAX of estimated position of the rescue bot in one step
+	X_MIN = 0
+	Y_MIN = 0
+
+	# Number of GPS accessible robots
+	NUM_GPSBOTS = 0
+
+	# Number of GPS accessible robots that are moving
+	NUM_MOVING_GPSBOTS = 0
 }
 
 
