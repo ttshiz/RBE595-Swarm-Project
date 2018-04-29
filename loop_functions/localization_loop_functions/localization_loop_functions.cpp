@@ -2,9 +2,11 @@
 #include <argos3/core/simulator/simulator.h>
 #include <argos3/core/utility/configuration/argos_configuration.h>
 
+#include <argos3/plugins/robots/kheperaiv/control_interface/buzz_controller_kheperaiv.h>
 #include <buzz/buzzvm.h>
-#include <buzz/argos/buzz_controller_footbot.h> 
-/**#include <buzz/argos/buzz_controller.h> */
+#include <argos3/plugins/robots/kheperaiv/simulator/kheperaiv_entity.h>
+/*#include <buzz/argos/buzz_controller_footbot.h>
+#include <buzz/argos/buzz_controller.h> */
 
 #include <list>
 #include <sstream>
@@ -34,7 +36,7 @@ void CLocalizationLoopFunctions::Init(TConfigurationNode& t_node) {
     m_pcFloor = &GetSpace().GetFloorEntity();
     /* Get the output file name from XML */
     GetNodeAttribute(tLocalization, "output", m_strOutput);
-      
+    Reset();
   }
   catch(CARGoSException& ex) {
     THROW_ARGOSEXCEPTION_NESTED("Error parsing loop functions!", ex);
@@ -64,9 +66,9 @@ void CLocalizationLoopFunctions::Destroy() {
 CColor CLocalizationLoopFunctions::GetFloorColor(const CVector2& c_position_on_plane) {
   if((c_position_on_plane.GetX() > -1.0f) && (c_position_on_plane.GetX() < 1.0f)
      && (c_position_on_plane.GetY() > -1.0f) && (c_position_on_plane.GetY() < 1.0f)) {
-      return CColor::GRAY50;
-   }
-   return CColor::WHITE;
+    return CColor::GRAY50;
+  }
+  return CColor::WHITE;
 }
 
 /****************************************/
@@ -81,29 +83,32 @@ void CLocalizationLoopFunctions::PostStep() {
   buzzvm_t tBuzzVM;
   buzzobj_t tObj;
   /* for each robot */
-  for(size_t i = 0; i < m_vecControllers.size(); ++i) {
+  CSpace::TMapPerType kmap = GetSpace().GetEntitiesByType("kheperaiv");
+  m_cOutput << ", numKBots " << kmap.size();
+  for(auto it = kmap.begin(); it != kmap.end(); ++it) {
     /* Get reference to the VM */
-    tBuzzVM = m_vecControllers[i]->GetBuzzVM();
+    tBuzzVM = dynamic_cast<CBuzzController&>(any_cast<CKheperaIVEntity*>(it->second)->GetControllableEntity().GetController()).GetBuzzVM();
     /* Make sure no error occurred in the script */
     if(tBuzzVM->state != BUZZVM_STATE_ERROR) {
       /* Output output queue size */
       m_cQueueOutFile << "," << buzzoutmsg_queue_size(tBuzzVM);
-      /* Update VS data */
+      /* Update VS data */ /*
       if(!m_vecDone[i]) {
 	buzzvm_pushs(tBuzzVM, buzzvm_string_register(tBuzzVM, "est_location", 0));
 	buzzvm_gload(tBuzzVM);
 	tObj = buzzvm_stack_at(tBuzzVM, 1);
 	buzzvm_pop(tBuzzVM);
 	m_vecDone[i] =
-	  tObj->o.type == BUZZTYPE_INT &&
+	  tObj->o.type == BUZZTYPE_TABLE &&
 	  tObj->i.value == m_vecControllers.size() - 1;
 	m_bDone &= m_vecDone[i];
 	m_cOutput << ","
-		  << (tObj->o.type == BUZZTYPE_INT ? tObj->i.value : 0);
+		  << (tObj->o.type == BUZZTYPE_TABLE ? tObj->i.value : 0);
       }
       else {
 	m_cOutput << "," << m_vecControllers.size() - 1;
 	} 
+			   */
     }
   }
   /* Close the record */

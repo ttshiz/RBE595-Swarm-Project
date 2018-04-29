@@ -119,7 +119,8 @@ function localize(x1, y1, r1, x2, y2, r2, x3, y3, r3) {
 	
 	# Update output variables
 	est_location = tript 
-	#act_location
+	act_location = math.vec2.new(pose.position.x, pose.position.y)
+	log("Act.x ", act_location.x, "Act.y ", act_location.y)
 
 	return tript
 }
@@ -141,8 +142,8 @@ function rescueBots() {
 
 	range_data = getRangeData()
 
-	log(size(range_data))
-	table_print(range_data)
+	#log(size(range_data))
+	#table_print(range_data)
 
 	if (size(range_data) >= 3) {
 		# log("Rangedata[1]", range_data[1])

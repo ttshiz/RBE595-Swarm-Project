@@ -15,9 +15,13 @@ argos3/core/simulator/simulator.h
 -
 argos3/core/utility/configuration/argos_configuration.h
 -
+argos3/plugins/robots/kheperaiv/control_interface/buzz_controller_kheperaiv.h
+-
 buzz/buzzvm.h
 -
-buzz/argos/buzz_controller_footbot.h
+argos3/plugins/robots/kheperaiv/simulator/kheperaiv_entity.h
+-
+buzz/argos/buzz_controller.h
 -
 list
 -
@@ -33,9 +37,11 @@ argos3/core/simulator/entity/floor_entity.h
 -
 argos3/core/utility/math/range.h
 -
+argos3/plugins/robots/kheperaiv/control_interface/buzz_controller_kheperaiv.h
+-
 buzz/buzzvm.h
 -
-buzz/argos/buzz_controller_footbot.h
+buzz/argos/buzz_controller.h
 -
 list
 -
