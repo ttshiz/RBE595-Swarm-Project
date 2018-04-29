@@ -103,7 +103,7 @@
     <distribute>
       <position method="uniform" min="-2,-2,0" max="-1,2,0" />
       <orientation method="gaussian" mean="0,0,0" std_dev="360,0,0" />
-      <entity quantity="4" max_trials="100" base_num="2" >
+      <entity quantity="3" max_trials="100" base_num="2" >
         <kheperaiv id="kiv" rab_data_size="100">
           <controller config="obsAvoid" />
         </kheperaiv>
@@ -113,7 +113,7 @@
     <distribute>
       <position method="uniform" min="-2,1,0" max="2,2,0" />
       <orientation method="gaussian" mean="0,0,0" std_dev="360,0,0" />
-      <entity quantity="4" max_trials="100" base_num="6" >
+      <entity quantity="3" max_trials="100" base_num="5" >
         <kheperaiv id="kiv" rab_data_size="100">
           <controller config="obsAvoid" />
         </kheperaiv>
@@ -123,7 +123,7 @@
     <distribute>
       <position method="uniform" min="1,-2,0" max="2,2,0" />
       <orientation method="gaussian" mean="0,0,0" std_dev="360,0,0" />
-      <entity quantity="4" max_trials="100" base_num="10" >
+      <entity quantity="3" max_trials="100" base_num="8" >
         <kheperaiv id="kiv" rab_data_size="100">
           <controller config="obsAvoid" />
         </kheperaiv>
@@ -133,7 +133,7 @@
     <distribute>
       <position method="uniform" min="-2,-2,0" max="2,-1,0" />
       <orientation method="gaussian" mean="0,0,0" std_dev="360,0,0" />
-      <entity quantity="4" max_trials="100" base_num="14" >
+      <entity quantity="3" max_trials="100" base_num="11" >
         <kheperaiv id="kiv" rab_data_size="100">
           <controller config="obsAvoid" />
         </kheperaiv>
