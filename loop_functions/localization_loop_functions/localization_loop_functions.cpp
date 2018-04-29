@@ -49,6 +49,7 @@ void CLocalizationLoopFunctions::Init(TConfigurationNode& t_node) {
 void CLocalizationLoopFunctions::Reset() {
   OpenFile(m_cQueueOutFile, QUEUEFILE);
   OpenFile(m_cOutput,      FILE_PREFIX);
+  headers_output = false;
 }
 
 /****************************************/
@@ -75,15 +76,26 @@ CColor CLocalizationLoopFunctions::GetFloorColor(const CVector2& c_position_on_p
 /****************************************/
 
 void CLocalizationLoopFunctions::PostStep() {
+  CSpace::TMapPerType kmap = GetSpace().GetEntitiesByType("kheperaiv");
+  
+  if (headers_output == false){
+    headers_output = true;
+    m_cOutput << "time_step";
+    for(auto it = kmap.begin(); it != kmap.end(); ++it) {
+      std::string id = any_cast<CKheperaIVEntity*>(it->second)->GetId();
+      m_cOutput << "," << id << "_estx" << "," << id << "_esty"
+		<< "," << id << "_actx" << "," << id << "_acty";
+    }
+    m_cOutput << std::endl;
+  }
+ 
   /* Output the current time step */
   m_cQueueOutFile << GetSpace().GetSimulationClock();
   m_cOutput << GetSpace().GetSimulationClock();
   /* Go through the robots */
-  m_bDone = true;
   buzzvm_t tBuzzVM;
   buzzobj_t tObj;
   /* for each robot */
-  CSpace::TMapPerType kmap = GetSpace().GetEntitiesByType("kheperaiv");
   /*m_cOutput << ", numKBots " << kmap.size(); */
   for(auto it = kmap.begin(); it != kmap.end(); ++it) {
     /* Get reference to the VM */
@@ -109,19 +121,6 @@ void CLocalizationLoopFunctions::PostStep() {
 	  printf("ERROR, %s was a %d", vars[v], tObj->o.type);
 	}
       }
-	/*	(tObj->o.type == BUZZTYPE_TABLE ? tObj->i.value : 0);
-	 */
-      /* Update VS data */ /*
-      if(!m_vecDone[i]) {
-	m_vecDone[i] =
-	  tObj->o.type == BUZZTYPE_TABLE &&
-	  tObj->i.value == m_vecControllers.size() - 1;
-	m_bDone &= m_vecDone[i];
-      }
-      else {
-	m_cOutput << "," << m_vecControllers.size() - 1;
-	} 
-			   */
     }
   }
   /* Close the record */

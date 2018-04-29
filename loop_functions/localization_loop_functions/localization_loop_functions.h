@@ -41,12 +41,9 @@ private:
    void CloseFile(std::ofstream& c_stream);
 
    std::string m_strOutput;
-   bool m_bDone;
    std::ofstream m_cOutput;
    std::ofstream m_cQueueOutFile;
-   /**std::vector<CBuzzControllerFootBot*> m_vecControllers;
-   std::vector<bool> m_vecDone;
-   */
+   bool headers_output;
 };
 
 #endif
