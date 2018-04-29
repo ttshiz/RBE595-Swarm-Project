@@ -39,9 +39,21 @@
   </controllers>
 
   <!-- *********************** -->
+  <!-- * Loop functions * -->
+  <!-- *********************** -->
+  <loop_functions library="build/loop_functions/localization_loop_functions/liblocalization_loop_functions" label="localization_loop_functions">
+    <localization
+  output="localization.txt" />
+  </loop_functions>
+
+  <!-- *********************** -->
   <!-- * Arena configuration * -->
   <!-- *********************** -->
   <arena size="5, 5, 1" center="0,0,0.5">
+
+    <floor id="floor"
+     source="loop_functions"
+     pixels_per_meter="50" />
 
     <box id="wall_north" size="4,0.1,0.5" movable="false">
       <body position="0,2,0" orientation="0,0,0" />
