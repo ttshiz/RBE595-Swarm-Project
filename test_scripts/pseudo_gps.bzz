@@ -1,26 +1,26 @@
 include "include/vec2.bzz"
 
 # Actual position of the rescue bot
-X = 0
-Y = 0
+X = -1.0
+Y = -1.0
 
 # Estimated position of the rescue bot
-X_EST = 0
-Y_EST = 0
+X_EST = -1.0
+Y_EST = -1.0
 
 # Average of estimated position of the rescue bot in one step
-X_AVG = 0
-Y_AVG = 0
+X_AVG = -1.0
+Y_AVG = -1.0
 
 # MIN and MAX of estimated position of the rescue bot in one step
-X_MIN = 0
-Y_MIN = 0
+X_MIN = -1.0
+Y_MIN = -1.0
 
 # Number of GPS accessible robots
-NUM_GPSBOTS = 0
+NUM_GPSBOTS = -1
 
 # Number of GPS accessible robots that are moving
-NUM_MOVING_GPSBOTS = 0
+NUM_MOVING_GPSBOTS = -1
 
 	
 # Stigmergy GPS beacon table
@@ -162,10 +162,6 @@ function rescueBots() {
 	if (size(range_data) >= 3) {
 		# log("Rangedata[1]", range_data[1])
 		myloc = localize(range_data[0].x, range_data[0].y, range_data[0].dist, range_data[1].x, range_data[1].y, range_data[1].dist, range_data[2].x, range_data[2].y, range_data[2].dist)
-	}
-
-	# localize(1,0,1,-1,0,1,0,1,1)
-	# localize(1.56373, 1.78885, 2.28862, 1.66637, 1.55549, 2.11412, 1.32756, 1.45889, 1.89937)
 
 	# Update variables	
 	# Actual position of the rescue bot
@@ -177,18 +173,23 @@ function rescueBots() {
 	Y_EST = myloc.y
 
 	# Average of estimated position of the rescue bot in one step
-	X_AVG = 0
-	Y_AVG = 0
+	X_AVG = -1.0
+	Y_AVG = -1.0
 
 	# MIN and MAX of estimated position of the rescue bot in one step
-	X_MIN = 0
-	Y_MIN = 0
+	X_MIN = -1.0
+	Y_MIN = -1.0
 
 	# Number of GPS accessible robots
-	NUM_GPSBOTS = 0
+	NUM_GPSBOTS = -1
 
 	# Number of GPS accessible robots that are moving
-	NUM_MOVING_GPSBOTS = 0
+	NUM_MOVING_GPSBOTS = -1
+	}
+
+	# localize(1,0,1,-1,0,1,0,1,1)
+	# localize(1.56373, 1.78885, 2.28862, 1.66637, 1.55549, 2.11412, 1.32756, 1.45889, 1.89937)
+
 }
 
 

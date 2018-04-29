@@ -108,7 +108,7 @@ void CLocalizationLoopFunctions::PostStep() {
       m_cQueueOutFile << "," << buzzoutmsg_queue_size(tBuzzVM);
       const char *vars[] = {"X", "Y","X_EST", "Y_EST", "X_AVG", "Y_AVG", "X_MIN", "Y_MIN" };
       m_cOutput << ",";
-      for(int v = 0; v < 4; v++) {
+      for(int v = 0; v < 8; v++) {
 	buzzvm_pushs(tBuzzVM, buzzvm_string_register(tBuzzVM, vars[v], 0));
 	buzzvm_gload(tBuzzVM);
 	tObj = buzzvm_stack_at(tBuzzVM, 1);
@@ -116,11 +116,28 @@ void CLocalizationLoopFunctions::PostStep() {
 	if (tObj->o.type == BUZZTYPE_FLOAT){
 	  /*m_cOutput << vars[v] << "=" << tObj->f.value;*/
 	  m_cOutput << tObj->f.value;
-	  if(v!=3) {
+	  if(v!=8) {
 	    m_cOutput << ",";
 	  }
 	} else {
 	  printf("ERROR, %s was a %d", vars[v], tObj->o.type);
+	}
+      }
+      m_cOutput << ",";
+      const char *int_vars[] = {"NUM_GPSBOTS", "NUM_MOVING_GPSBOTS"};
+      for(int v = 0; v < 2; v++) {
+	buzzvm_pushs(tBuzzVM, buzzvm_string_register(tBuzzVM, int_vars[v], 0));
+	buzzvm_gload(tBuzzVM);
+	tObj = buzzvm_stack_at(tBuzzVM, 1);
+	buzzvm_pop(tBuzzVM);
+	if (tObj->o.type == BUZZTYPE_INT){
+	  /*m_cOutput << vars[v] << "=" << tObj->f.value;*/
+	  m_cOutput << tObj->i.value;
+	  if(v!=2) {
+	    m_cOutput << ",";
+	  }
+	} else {
+	  printf("ERROR, %s was a %d", int_vars[v], tObj->o.type);
 	}
       }
     }
