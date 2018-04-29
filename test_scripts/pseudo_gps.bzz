@@ -51,9 +51,9 @@ while(ctr < NUM_MOVING_GPSBOTS){
 }
 
 # Print random indexes
-foreach(mov_gps_pos, function(key, value) {
-  log(key, " : ", value)
-})
+# foreach(mov_gps_pos, function(key, value) {
+#   log(key, " : ", value)
+# })
 
 #log(x)
 #log(size(t))
