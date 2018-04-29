@@ -84,7 +84,7 @@ void CLocalizationLoopFunctions::PostStep() {
   buzzobj_t tObj;
   /* for each robot */
   CSpace::TMapPerType kmap = GetSpace().GetEntitiesByType("kheperaiv");
-  m_cOutput << ", numKBots " << kmap.size();
+  /*m_cOutput << ", numKBots " << kmap.size(); */
   for(auto it = kmap.begin(); it != kmap.end(); ++it) {
     /* Get reference to the VM */
     tBuzzVM = dynamic_cast<CBuzzController&>(any_cast<CKheperaIVEntity*>(it->second)->GetControllableEntity().GetController()).GetBuzzVM();
@@ -92,18 +92,31 @@ void CLocalizationLoopFunctions::PostStep() {
     if(tBuzzVM->state != BUZZVM_STATE_ERROR) {
       /* Output output queue size */
       m_cQueueOutFile << "," << buzzoutmsg_queue_size(tBuzzVM);
-      /* Update VS data */ /*
-      if(!m_vecDone[i]) {
-	buzzvm_pushs(tBuzzVM, buzzvm_string_register(tBuzzVM, "est_location", 0));
+      const char *vars[] = {"est_x", "est_y", "act_x", "act_y"};
+      m_cOutput << ",";
+      for(int v = 0; v < 4; v++) {
+	buzzvm_pushs(tBuzzVM, buzzvm_string_register(tBuzzVM, vars[v], 0));
 	buzzvm_gload(tBuzzVM);
 	tObj = buzzvm_stack_at(tBuzzVM, 1);
 	buzzvm_pop(tBuzzVM);
+	if (tObj->o.type == BUZZTYPE_FLOAT){
+	  /*m_cOutput << vars[v] << "=" << tObj->f.value;*/
+	  m_cOutput << tObj->f.value;
+	  if(v!=3) {
+	    m_cOutput << ",";
+	  }
+	} else {
+	  printf("ERROR, %s was a %d", vars[v], tObj->o.type);
+	}
+      }
+	/*	(tObj->o.type == BUZZTYPE_TABLE ? tObj->i.value : 0);
+	 */
+      /* Update VS data */ /*
+      if(!m_vecDone[i]) {
 	m_vecDone[i] =
 	  tObj->o.type == BUZZTYPE_TABLE &&
 	  tObj->i.value == m_vecControllers.size() - 1;
 	m_bDone &= m_vecDone[i];
-	m_cOutput << ","
-		  << (tObj->o.type == BUZZTYPE_TABLE ? tObj->i.value : 0);
       }
       else {
 	m_cOutput << "," << m_vecControllers.size() - 1;

@@ -6,8 +6,10 @@ include "include/vec2.bzz"
 v = stigmergy.create(1)
 
 # Create output variables
-est_location = math.vec2.new(0.0, 0.0)
-act_location = math.vec2.new(0.0, 0.0)
+est_x = -1.0
+est_y = -1.0
+act_x = -1.0
+act_y = -1.0
 
 function avoid_obstacle() {
 
@@ -118,9 +120,11 @@ function localize(x1, y1, r1, x2, y2, r2, x3, y3, r3) {
 	log("Tript.x: ", tript.x, " Tript.y: ", tript.y)
 	
 	# Update output variables
-	est_location = tript 
-	act_location = math.vec2.new(pose.position.x, pose.position.y)
-	log("Act.x ", act_location.x, "Act.y ", act_location.y)
+	est_x = tript.x 
+	est_y = tript.y
+	act_x = pose.position.x
+	act_y = pose.position.y
+	log("Act.x ", act_x, "Act.y ", act_y)
 
 	return tript
 }
