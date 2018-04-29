@@ -1,20 +1,23 @@
 include "include/vec2.bzz"
 
 # Actual position of the rescue bot
-X = 0
-Y = 0
+X = 0.0
+Y = 0.0
 
 # Estimated position of the rescue bot
-X_EST = 0
-Y_EST = 0
+X_EST = 0.0
+Y_EST = 0.0
 
 # Average of estimated position of the rescue bot in one step
-X_AVG = 0
-Y_AVG = 0
+X_AVG = 0.0
+Y_AVG = 0.0
 
 # MIN and MAX of estimated position of the rescue bot in one step
-X_MIN = 0
-Y_MIN = 0
+X_MIN = 0.0
+Y_MIN = 0.0
+
+X_MAX = 0.0
+Y_MAX = 0.0
 
 # Number of GPS accessible robots
 NUM_GPSBOTS = 16
@@ -184,14 +187,14 @@ function rescueBots() {
 		est_pos_sum = math.vec2.new(0.0, 0.0)
 
 		# Reset position variables
-		X_EST = 0
-		Y_EST = 0
+		X_EST = 0.0
+		Y_EST = 0.0
 
-		X_MIN = 0
-		Y_MIN = 0
+		X_MIN = 0.0
+		Y_MIN = 0.0
 
-		X_MAX = 0
-		Y_MAX = 0
+		X_MAX = 0.0
+		Y_MAX = 0.0
 
 		# Iterate taking 3 GPS beacons at a time
 		while (idx <= (NUM_CONNECTED_GPSBOTS - 3)) {
