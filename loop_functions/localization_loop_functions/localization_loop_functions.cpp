@@ -112,7 +112,7 @@ void CLocalizationLoopFunctions::PostStep() {
       const char *vars[] = {"X", "Y","X_EST", "Y_EST", "X_AVG", "Y_AVG", "X_MIN", "Y_MIN", "X_MAX"
 			    , "Y_MAX", "FRAC_MOVING_GPSBOTS"};
       m_cOutput << ",";
-      for(int v = 0; v < 8; v++) {
+      for(int v = 0; v < 11; v++) {
 	buzzvm_pushs(tBuzzVM, buzzvm_string_register(tBuzzVM, vars[v], 0));
 	buzzvm_gload(tBuzzVM);
 	tObj = buzzvm_stack_at(tBuzzVM, 1);
@@ -120,7 +120,7 @@ void CLocalizationLoopFunctions::PostStep() {
 	if (tObj->o.type == BUZZTYPE_FLOAT){
 	  /*m_cOutput << vars[v] << "=" << tObj->f.value;*/
 	  m_cOutput << tObj->f.value;
-	  if(v!=8) {
+	  if(v!=11) {
 	    m_cOutput << ",";
 	  }
 	} else {
@@ -129,7 +129,7 @@ void CLocalizationLoopFunctions::PostStep() {
       }
       m_cOutput << ",";
       const char *int_vars[] = {"NUM_GPSBOTS", "NUM_MOVING_GPSBOTS", "NUM_CONNECTED_GPSBOTS"};
-      for(int v = 0; v < 2; v++) {
+      for(int v = 0; v < 3; v++) {
 	buzzvm_pushs(tBuzzVM, buzzvm_string_register(tBuzzVM, int_vars[v], 0));
 	buzzvm_gload(tBuzzVM);
 	tObj = buzzvm_stack_at(tBuzzVM, 1);
@@ -137,7 +137,7 @@ void CLocalizationLoopFunctions::PostStep() {
 	if (tObj->o.type == BUZZTYPE_INT){
 	  /*m_cOutput << vars[v] << "=" << tObj->f.value;*/
 	  m_cOutput << tObj->i.value;
-	  if(v!=2) {
+	  if(v!=3) {
 	    m_cOutput << ",";
 	  }
 	} else {
