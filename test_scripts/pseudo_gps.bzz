@@ -20,7 +20,7 @@ X_MAX = 0.0
 Y_MAX = 0.0
 
 # Number of GPS accessible robots
-NUM_GPSBOTS = 16
+NUM_GPSBOTS = 12
 
 # Fraction of moving robots
 FRAC_MOVING_GPSBOTS = 0.3
@@ -233,10 +233,20 @@ function rescueBots() {
 		# Iterate taking 3 GPS beacons at a time
 		while (idx <= (NUM_CONNECTED_GPSBOTS - 3)) {
 
+
 			# Trilaterate position
 			est_pos = localize(range_data[idx].x, range_data[idx].y, range_data[idx].dist, range_data[idx + 1].x, range_data[idx + 1].y, range_data[idx + 1].dist, range_data[idx + 2].x, range_data[idx + 2].y, range_data[idx + 2].dist)
 			X_EST = est_pos.x
 			Y_EST = est_pos.y
+
+			# Update Min and Max the first time
+			if (idx == 0) {
+				X_MIN = X_EST
+				X_MAX = X_EST
+
+				Y_MIN = Y_EST
+				Y_MAX = Y_EST
+			}
 
 			# Get range of the extimated values
 			X_MIN = math.min(X_MIN, X_EST)
