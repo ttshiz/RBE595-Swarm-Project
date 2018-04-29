@@ -1,4 +1,4 @@
-# Install script for directory: /home/ttshiz/swarm_project
+# Install script for directory: /media/amey/OS/The_Works/WPI/2018_Spring/SWARM/Swarm_project/RBE595-Swarm-Project
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,8 +34,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/ttshiz/swarm_project/build/controllers/cmake_install.cmake")
-  include("/home/ttshiz/swarm_project/build/loop_functions/cmake_install.cmake")
+  include("/media/amey/OS/The_Works/WPI/2018_Spring/SWARM/Swarm_project/RBE595-Swarm-Project/build/controllers/cmake_install.cmake")
+  include("/media/amey/OS/The_Works/WPI/2018_Spring/SWARM/Swarm_project/RBE595-Swarm-Project/build/loop_functions/cmake_install.cmake")
 
 endif()
 
@@ -47,5 +47,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/ttshiz/swarm_project/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/media/amey/OS/The_Works/WPI/2018_Spring/SWARM/Swarm_project/RBE595-Swarm-Project/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
