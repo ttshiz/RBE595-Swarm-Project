@@ -88,8 +88,8 @@ void CLocalizationLoopFunctions::PostStep() {
 		<< "," << id << "_X_AVG" << "," << id << "_Y_AVG"
 		<< "," << id << "_X_MIN" << "," << id << "_Y_MIN"
 		<< "," << id << "_X_MAX" << "," << id << "_Y_MAX"
-		<< "NUM_GPSBOTS" << "FRAC_MOVING_GPSBOTS"
-		<< "NUM_MOVING_GPSBOTS" << "NUM_CONNECTED_GPSBOTS";
+		<< "," << id << "FRAC_MOVING_GPSBOTS" << "," << id << "NUM_GPSBOTS" 
+		<< "," << id << "NUM_MOVING_GPSBOTS" << "," << id << "NUM_CONNECTED_GPSBOTS";
     }
     m_cOutput << std::endl;
   }
