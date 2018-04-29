@@ -1,4 +1,4 @@
-include "include/vec2.bzz"
+include "/usr/local/share/buzz/include/vec2.bzz"
 
 # Actual position of the rescue bot
 X = 0.0
@@ -23,7 +23,7 @@ Y_MAX = 0.0
 NUM_GPSBOTS = 16
 
 # Fraction of moving robots
-FRAC_MOVING_GPSBOTS = 1.0
+FRAC_MOVING_GPSBOTS = 0.3
 
 # Number of GPS robots that are moving
 NUM_MOVING_GPSBOTS = math.floor(NUM_GPSBOTS * FRAC_MOVING_GPSBOTS)
@@ -31,7 +31,34 @@ NUM_MOVING_GPSBOTS = math.floor(NUM_GPSBOTS * FRAC_MOVING_GPSBOTS)
 # Number of connected GPS bots
 NUM_CONNECTED_GPSBOTS = 0
 
-	
+# Empty table for randomly selecting moving gpsBots
+mov_gps_pos = {}
+ctr = 0
+while(ctr < NUM_MOVING_GPSBOTS){
+	# Select moving robots randomly (id btw 2 to total)
+	y = math.rng.uniform(2,(NUM_GPSBOTS + 1))
+
+	# Code to avoid repeated random numbers
+	if (mov_gps_pos[y]){
+		# Do nothing
+	} else {
+		# Add the random value to the table
+		mov_gps_pos[y] = y
+
+		# Increment counter
+		ctr = ctr + 1	
+	}		
+}
+
+# Print random indexes
+foreach(mov_gps_pos, function(key, value) {
+  log(key, " : ", value)
+})
+
+#log(x)
+#log(size(t))
+
+
 # Stigmergy GPS beacon table
 # The GPS beacon bots put their location in this table
 v = stigmergy.create(1)
@@ -256,17 +283,24 @@ function init() {
 	# Swarm 2: rescue robot
 	s2 = swarm.create(2)
 	s2.select(id == 1)
-
+	
 	# Swarm 3: Moving GPS robots
 	s3 = swarm.create(3)
-	s3.select((id > 1) and (id <= (NUM_MOVING_GPSBOTS + 1)))
-
+	
 	# Swarm 4: Stationary GPS robots
 	s4 = swarm.create(4)
-	s4.select(id > (NUM_MOVING_GPSBOTS + 1))
 
+	# Add remaining robots to s3 and s4 according to random locations generated
+	if (id > 1) {
+		if(mov_gps_pos[id]){
+			s3.join()
+		} else {
+			s4.join()
+		}
+	}
+		
 	if (s1.in()) {
-		# Color 
+		# Color red
 		set_leds(255,0,0)
 	} 
 
@@ -281,7 +315,7 @@ function init() {
 	}
 
 	if (s4.in()){
-		# Color blue
+		# Color skyblue
 		set_leds(0,128,128)
 	} 
 
