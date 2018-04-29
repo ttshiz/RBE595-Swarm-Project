@@ -83,8 +83,10 @@ void CLocalizationLoopFunctions::PostStep() {
     m_cOutput << "time_step";
     for(auto it = kmap.begin(); it != kmap.end(); ++it) {
       std::string id = any_cast<CKheperaIVEntity*>(it->second)->GetId();
-      m_cOutput << "," << id << "_estx" << "," << id << "_esty"
-		<< "," << id << "_actx" << "," << id << "_acty";
+      m_cOutput << "," << id << "_X" << "," << id << "_Y"
+		<< "," << id << "_X_EST" << "," << id << "_Y_EST"
+		<< "," << id << "_X_AVG" << "," << id << "_Y_AVG"
+		<< "," << id << "_X_MIN" << "," << id << "_Y_MIN";
     }
     m_cOutput << std::endl;
   }
@@ -104,7 +106,7 @@ void CLocalizationLoopFunctions::PostStep() {
     if(tBuzzVM->state != BUZZVM_STATE_ERROR) {
       /* Output output queue size */
       m_cQueueOutFile << "," << buzzoutmsg_queue_size(tBuzzVM);
-      const char *vars[] = {"est_x", "est_y", "act_x", "act_y"};
+      const char *vars[] = {"X", "Y","X_EST", "Y_EST", "X_AVG", "Y_AVG", "X_MIN", "Y_MIN" };
       m_cOutput << ",";
       for(int v = 0; v < 4; v++) {
 	buzzvm_pushs(tBuzzVM, buzzvm_string_register(tBuzzVM, vars[v], 0));
