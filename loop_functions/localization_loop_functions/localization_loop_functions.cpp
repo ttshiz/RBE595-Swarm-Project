@@ -120,7 +120,7 @@ void CLocalizationLoopFunctions::PostStep() {
 	if (tObj->o.type == BUZZTYPE_FLOAT){
 	  /*m_cOutput << vars[v] << "=" << tObj->f.value;*/
 	  m_cOutput << tObj->f.value;
-	  if(v!=11) {
+	  if(v!=10) {
 	    m_cOutput << ",";
 	  }
 	} else {
@@ -137,7 +137,7 @@ void CLocalizationLoopFunctions::PostStep() {
 	if (tObj->o.type == BUZZTYPE_INT){
 	  /*m_cOutput << vars[v] << "=" << tObj->f.value;*/
 	  m_cOutput << tObj->i.value;
-	  if(v!=3) {
+	  if(v!=2) {
 	    m_cOutput << ",";
 	  }
 	} else {
