@@ -23,7 +23,7 @@ Y_MAX = 0.0
 NUM_GPSBOTS = 16
 
 # Fraction of moving robots
-FRAC_MOVING_GPSBOTS = 0.3
+FRAC_MOVING_GPSBOTS = 1.0
 
 # Number of GPS robots that are moving
 NUM_MOVING_GPSBOTS = math.floor(NUM_GPSBOTS * FRAC_MOVING_GPSBOTS)
@@ -104,7 +104,9 @@ function getRangeData() {
 	        # i.e. The rescue bot has an active connection to the current GPS bot
 			if (neighbors.get(rid)) {
 				# Log the current tuple to the table (distances are in meters)
-				r_data[id_count] = {.rid = rid, .x = data.x, .y = data.y, .dist = neighbors.get(rid).distance/100}
+				# r_data[id_count] = {.rid = rid, .x = data.x, .y = data.y, .dist = neighbors.get(rid).distance/100}
+
+				r_data[id_count] = {.rid = rid, .x = data.x, .y = data.y, .dist = data.dist}
 				# Increment the key index
 				id_count = id_count + 1
 			}
@@ -153,8 +155,13 @@ function localize(x1, y1, r1, x2, y2, r2, x3, y3, r3) {
 # Step function for the GPS bots
 function gpsBots() {
 
-	# Every GPS bot writes its location to the stigmergy table
-	v.put(id, {.x = pose.position.x, .y = pose.position.y})
+	# If the GPS bot is connected to rescue bot
+	if (neighbors.get(1)) {
+		# GPS bot writes its location to the stigmergy table
+		v.put(id, {.x = pose.position.x, .y = pose.position.y, .dist = neighbors.get(1).distance/100})
+	}
+
+	
 
 	# avoid_obstacle()
 }
@@ -279,14 +286,14 @@ function init() {
 # Executed every time step
 function step() {
 
+	# Call avoid obstacle function for moving GPSbots
+	s3.exec(avoid_obstacle)
+
 	# Call gpsBots function
 	s3.exec(gpsBots)
 
 	# Call gpsBots function
 	s4.exec(gpsBots)
-
-	# Call avoid obstacle function for moving GPSbots
-	s3.exec(avoid_obstacle)
 
 	# Call rescueBots function
 	s2.exec(rescueBots)	
