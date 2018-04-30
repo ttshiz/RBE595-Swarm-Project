@@ -6,5 +6,5 @@ CXX_FLAGS = -g -fPIC   -std=gnu++14
 
 CXX_DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -Dlocalization_loop_functions_EXPORTS
 
-CXX_INCLUDES = -I/media/amey/OS/The_Works/WPI/2018_Spring/SWARM/Swarm_project/RBE595-Swarm-Project/build/loop_functions/localization_loop_functions -I/media/amey/OS/The_Works/WPI/2018_Spring/SWARM/Swarm_project/RBE595-Swarm-Project/loop_functions/localization_loop_functions -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/media/amey/OS/The_Works/WPI/2018_Spring/SWARM/Swarm_project/RBE595-Swarm-Project -I/usr/include/lua5.2 
+CXX_INCLUDES = -I/media/amey/OS/The_Works/WPI/2018_Spring/SWARM/Swarm_project/RBE595-Swarm-Project/build/loop_functions/localization_loop_functions -I/media/amey/OS/The_Works/WPI/2018_Spring/SWARM/Swarm_project/RBE595-Swarm-Project/loop_functions/localization_loop_functions -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/usr/local/include -I/media/amey/OS/The_Works/WPI/2018_Spring/SWARM/Swarm_project/RBE595-Swarm-Project -I/usr/include/lua5.2 
 

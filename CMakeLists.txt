@@ -29,11 +29,10 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ARGOS_PREFIX}/share/argos3/cmake)
 # code that depends on Qt and OpenGL
 include(ARGoSCheckQTOpenGL)
 
-# Look for the (optional) galib library
-find_package(GALIB)
-if(GALIB_FOUND)
-  include_directories(${GALIB_INCLUDE_DIRS})
-endif(GALIB_FOUND)
+find_package(Buzz)
+if(BUZZ_FOUND)
+  include_directories(${BUZZ_C_INCLUDE_DIR})
+endif(BUZZ_FOUND)
 
 # Find Lua
 find_package(Lua52 REQUIRED)

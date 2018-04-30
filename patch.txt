@@ -1,0 +1,57 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 08540e4..ae7da86 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -29,11 +29,10 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ARGOS_PREFIX}/share/argos3/cmake)
+ # code that depends on Qt and OpenGL
+ include(ARGoSCheckQTOpenGL)
+ 
+-# Look for the (optional) galib library
+-find_package(GALIB)
+-if(GALIB_FOUND)
+-  include_directories(${GALIB_INCLUDE_DIRS})
+-endif(GALIB_FOUND)
++find_package(Buzz)
++if(BUZZ_FOUND)
++  include_directories(${BUZZ_C_INCLUDE_DIR})
++endif(BUZZ_FOUND)
+ 
+ # Find Lua
+ find_package(Lua52 REQUIRED)
+diff --git a/loop_functions/localization_loop_functions/CMakeLists.txt b/loop_functions/localization_loop_functions/CMakeLists.txt
+index f7f3e4c..ea7c12b 100644
+--- a/loop_functions/localization_loop_functions/CMakeLists.txt
++++ b/loop_functions/localization_loop_functions/CMakeLists.txt
+@@ -9,13 +9,14 @@ set(localization_loop_functions_SOURCES localization_loop_functions.cpp)
+ 
+ add_library(localization_loop_functions MODULE ${localization_loop_functions_SOURCES})
+ target_link_libraries(localization_loop_functions
+-  footbot_foraging
+   argos3core_simulator
+   argos3plugin_simulator_dynamics2d
+   argos3plugin_simulator_entities
+-  argos3plugin_simulator_kheperaiv
++  argos3plugin_simulator_footbot
+   argos3plugin_simulator_genericrobot
+-  argos3plugin_simulator_media)
++  argos3plugin_simulator_media
++  argos3plugin_simulator_buzz
++  ${BUZZ_LIBRARY})
+ 
+ if(ARGOS_COMPILE_QTOPENGL)
+   target_link_libraries(localization_loop_functions argos3plugin_simulator_qtopengl)
+diff --git a/loop_functions/localization_loop_functions/localization_loop_functions.cpp b/loop_functions/localization_loop_functions/localization_loop_functions.cpp
+index 0361c06..75a858d 100644
+--- a/loop_functions/localization_loop_functions/localization_loop_functions.cpp
++++ b/loop_functions/localization_loop_functions/localization_loop_functions.cpp
+@@ -2,9 +2,8 @@
+ #include <argos3/core/simulator/simulator.h>
+ #include <argos3/core/utility/configuration/argos_configuration.h>
+ 
+-// #include <argos3/plugins/robots/kheperaiv/control_interface/buzz_controller_kheperaiv.h>
+ #include <buzz/buzzvm.h>
+-// #include <argos3/plugins/robots/kheperaiv/simulator/kheperaiv_entity.h>
++#include <argos3/plugins/robots/foot-bot/simulator/footbot_entity.h>
+ #include <buzz/argos/buzz_controller_footbot.h>
+ #include <buzz/argos/buzz_controller.h> 
+ 

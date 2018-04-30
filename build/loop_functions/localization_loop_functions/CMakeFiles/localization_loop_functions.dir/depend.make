@@ -3,6 +3,22 @@
 
 loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/localization_loop_functions.cpp.o: ../loop_functions/localization_loop_functions/localization_loop_functions.cpp
 loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/localization_loop_functions.cpp.o: ../loop_functions/localization_loop_functions/localization_loop_functions.h
+loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/localization_loop_functions.cpp.o: /usr/local/include/buzz/argos/buzz_controller.h
+loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/localization_loop_functions.cpp.o: /usr/local/include/buzz/argos/buzz_controller_footbot.h
+loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/localization_loop_functions.cpp.o: /usr/local/include/buzz/buzzdarray.h
+loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/localization_loop_functions.cpp.o: /usr/local/include/buzz/buzzdebug.h
+loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/localization_loop_functions.cpp.o: /usr/local/include/buzz/buzzdict.h
+loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/localization_loop_functions.cpp.o: /usr/local/include/buzz/buzzheap.h
+loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/localization_loop_functions.cpp.o: /usr/local/include/buzz/buzzinmsg.h
+loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/localization_loop_functions.cpp.o: /usr/local/include/buzz/buzzmsg.h
+loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/localization_loop_functions.cpp.o: /usr/local/include/buzz/buzzneighbors.h
+loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/localization_loop_functions.cpp.o: /usr/local/include/buzz/buzzoutmsg.h
+loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/localization_loop_functions.cpp.o: /usr/local/include/buzz/buzzset.h
+loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/localization_loop_functions.cpp.o: /usr/local/include/buzz/buzzstrman.h
+loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/localization_loop_functions.cpp.o: /usr/local/include/buzz/buzzswarm.h
+loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/localization_loop_functions.cpp.o: /usr/local/include/buzz/buzztype.h
+loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/localization_loop_functions.cpp.o: /usr/local/include/buzz/buzzvm.h
+loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/localization_loop_functions.cpp.o: /usr/local/include/buzz/buzzvstig.h
 
 loop_functions/localization_loop_functions/CMakeFiles/localization_loop_functions.dir/localization_loop_functions_automoc.cpp.o: loop_functions/localization_loop_functions/localization_loop_functions_automoc.cpp
 

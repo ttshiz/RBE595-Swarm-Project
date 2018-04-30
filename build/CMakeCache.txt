@@ -18,6 +18,27 @@
 // Qt-OpenGL
 ARGOS_FORCE_NO_QTOPENGL:BOOL=OFF
 
+//Location of the bzzasm compiler
+BUZZ_ASSEMBLER:FILEPATH=/usr/local/bin/bzzasm
+
+//Location of the Buzz BZZ include files
+BUZZ_BZZ_INCLUDE_DIR:PATH=/usr/local/share/buzz/include
+
+//Location of the bzzc compiler
+BUZZ_COMPILER:FILEPATH=/usr/local/bin/bzzc
+
+//Location of the Buzz C include files
+BUZZ_C_INCLUDE_DIR:PATH=/usr/local/include
+
+//Location of the Buzz library
+BUZZ_LIBRARY:FILEPATH=/usr/local/lib/libbuzz.so
+
+//Location of the Buzz debug library
+BUZZ_LIBRARY_DEBUG:FILEPATH=/usr/local/lib/libbuzzdbg.so
+
+//Location of the bzzparse compiler
+BUZZ_PARSER:FILEPATH=/usr/local/bin/bzzparse
+
 //Choose the type of build, options are: None(CMAKE_CXX_FLAGS or
 // CMAKE_C_FLAGS used) Debug Release RelWithDebInfo MinSizeRel.
 CMAKE_BUILD_TYPE:STRING=Debug
@@ -212,7 +233,7 @@ footbot_foraging_LIB_DEPENDS:STATIC=general;argos3core_simulator;general;argos3p
 foraging_loop_functions_LIB_DEPENDS:STATIC=general;footbot_foraging;general;argos3core_simulator;general;argos3plugin_simulator_dynamics2d;general;argos3plugin_simulator_entities;general;argos3plugin_simulator_footbot;general;argos3plugin_simulator_genericrobot;general;argos3plugin_simulator_media;general;argos3plugin_simulator_qtopengl;
 
 //Dependencies for the target
-localization_loop_functions_LIB_DEPENDS:STATIC=general;footbot_foraging;general;argos3core_simulator;general;argos3plugin_simulator_dynamics2d;general;argos3plugin_simulator_entities;general;argos3plugin_simulator_kheperaiv;general;argos3plugin_simulator_genericrobot;general;argos3plugin_simulator_media;general;argos3plugin_simulator_qtopengl;
+localization_loop_functions_LIB_DEPENDS:STATIC=general;argos3core_simulator;general;argos3plugin_simulator_dynamics2d;general;argos3plugin_simulator_entities;general;argos3plugin_simulator_kheperaiv;general;argos3plugin_simulator_genericrobot;general;argos3plugin_simulator_media;general;argos3plugin_simulator_buzz;general;/usr/local/lib/libbuzz.so;general;argos3plugin_simulator_qtopengl;
 
 
 ########################
@@ -253,6 +274,20 @@ ARGOS_argos3_simulator_INCLUDEDIR:INTERNAL=
 ARGOS_argos3_simulator_LIBDIR:INTERNAL=
 ARGOS_argos3_simulator_PREFIX:INTERNAL=
 ARGOS_argos3_simulator_VERSION:INTERNAL=
+//ADVANCED property for variable: BUZZ_ASSEMBLER
+BUZZ_ASSEMBLER-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BUZZ_BZZ_INCLUDE_DIR
+BUZZ_BZZ_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BUZZ_COMPILER
+BUZZ_COMPILER-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BUZZ_C_INCLUDE_DIR
+BUZZ_C_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BUZZ_LIBRARY
+BUZZ_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BUZZ_LIBRARY_DEBUG
+BUZZ_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BUZZ_PARSER
+BUZZ_PARSER-ADVANCED:INTERNAL=1
 //This is the directory where this CMakeCache.txt was created
 CMAKE_CACHEFILE_DIR:INTERNAL=/media/amey/OS/The_Works/WPI/2018_Spring/SWARM/Swarm_project/RBE595-Swarm-Project/build
 //Major version of cmake used to create the current loaded cache
@@ -356,6 +391,8 @@ CMAKE_STATIC_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding BUZZ
+FIND_PACKAGE_MESSAGE_DETAILS_BUZZ:INTERNAL=[/usr/local/bin/bzzc][/usr/local/bin/bzzparse][/usr/local/bin/bzzasm][/usr/local/lib/libbuzz.so][/usr/local/lib/libbuzzdbg.so][/usr/local/include][/usr/local/share/buzz/include][v()]
 //Details about finding GLUT
 FIND_PACKAGE_MESSAGE_DETAILS_GLUT:INTERNAL=[/usr/lib/x86_64-linux-gnu/libglut.so][/usr/include][v()]
 //Details about finding Lua52

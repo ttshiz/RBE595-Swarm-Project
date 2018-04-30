@@ -23,7 +23,7 @@ Y_MAX = 0.0
 NUM_GPSBOTS = 12
 
 # Fraction of moving robots
-FRAC_MOVING_GPSBOTS = 0.3
+FRAC_MOVING_GPSBOTS = 0.7
 
 # Number of GPS robots that are moving
 NUM_MOVING_GPSBOTS = math.floor(NUM_GPSBOTS * FRAC_MOVING_GPSBOTS)
@@ -63,6 +63,53 @@ while(ctr < NUM_MOVING_GPSBOTS){
 # The GPS beacon bots put their location in this table
 v = stigmergy.create(1)
 
+# ================== CODE FOR GOTO LIGHT ==================
+var accum = 0
+var lightx = 0
+var lighty = 0
+
+# Get the vector towards light
+function vector_light(rid, data) {
+	if (data.color.red >= 200) {
+		return math.vec2.newp(data.distance, data.angle)
+	} else {
+		return math.vec2.new(0.0, 0.0)	
+	}  
+}
+
+# Accumulator of neighbor LJ interactions
+function lj_sum(rid, data, accum) {
+  return math.vec2.add(data, accum)
+}
+
+# A functionto put a bound on the data
+function bound(data, min, max) {
+	if (data < min) {
+			return min
+	}
+	if (data > max) {
+		return max
+	}
+	return data
+}
+
+# Calculates and actuates the flocking interaction
+function goto_stranded() {
+	accum = reduce(map(blobs, vector_light), lj_sum, math.vec2.new(0.0, 0.0))
+	# if(neighbors.count() > 0)
+	# math.vec2.scale(accum, 50)
+	# Move according to vector
+	# lightx = bound((1/accum.x), -10.0, 10.0)
+	# lighty = bound((1/accum.y), -10.0, 10.0)
+  	# log(lightx, ", ", lighty)	
+  	# gotoc(lightx, lighty)
+	# gotoc(accum.x, accum.y)
+	# gotoc(0.0,1.0)
+
+	return accum
+}
+
+# ================== CODE FOR AVOID OBSTACLE ==================
 # Function to avoid obstacle
 function avoid_obstacle() {
 
@@ -78,7 +125,7 @@ function avoid_obstacle() {
 
 	# Loop variable
 	var i = 0
-	while(i <= 7){
+	while(i <= 23){
 		# Convert proximity reading to a vector
 		var prox_sense = math.vec2.newp(proximity[i].value, proximity[i].angle)
 		# Sum all proximity vlaues
@@ -186,15 +233,15 @@ function gpsBots() {
 	if (neighbors.get(1)) {
 		# GPS bot writes its location to the stigmergy table
 		v.put(id, {.x = pose.position.x, .y = pose.position.y, .dist = neighbors.get(1).distance/100})
-	}
+	}	
 
-	
-
-	# avoid_obstacle()
 }
 
 
 function rescueBots() {
+
+	# Enable camera
+	camera_enable()
 
 	# Get the number of tuples in the stigmergy table
 	# log("The vstig has ", v.size(), " elements")
@@ -232,7 +279,6 @@ function rescueBots() {
 
 		# Iterate taking 3 GPS beacons at a time
 		while (idx <= (NUM_CONNECTED_GPSBOTS - 3)) {
-
 
 			# Trilaterate position
 			est_pos = localize(range_data[idx].x, range_data[idx].y, range_data[idx].dist, range_data[idx + 1].x, range_data[idx + 1].y, range_data[idx + 1].dist, range_data[idx + 2].x, range_data[idx + 2].y, range_data[idx + 2].dist)
@@ -278,6 +324,26 @@ function rescueBots() {
 	# Test calls for localize
 	# localize(1,0,1,-1,0,1,0,1,1)
 	# localize(1.56373, 1.78885, 2.28862, 1.66637, 1.55549, 2.11412, 1.32756, 1.45889, 1.89937)
+
+
+	
+	# Get the vector from omni-directional camera
+	stranded_vec = goto_stranded()
+
+	# If the stranded vec is 0
+	if (math.vec2.length(stranded_vec) == 0.0) {
+		# Keep moving ahead
+		avoid_obstacle()
+	} else {
+		if (neighbors.get(0).distance > 25) {
+			# Go towards the stranded bot till its distance is greater than 25 cm
+			gotoc(stranded_vec.x, stranded_vec.y)
+		} else {
+			set_wheels(0.0, 0.0)
+			# Congrats!!! Stranded bot found
+			log("HELP! VICTIM FOUND at: X: ", X_AVG, ", Y: ", Y_AVG)
+		}		
+	}
 }
 
 
