@@ -2,11 +2,11 @@
 #include <argos3/core/simulator/simulator.h>
 #include <argos3/core/utility/configuration/argos_configuration.h>
 
-#include <argos3/plugins/robots/kheperaiv/control_interface/buzz_controller_kheperaiv.h>
+// #include <argos3/plugins/robots/kheperaiv/control_interface/buzz_controller_kheperaiv.h>
 #include <buzz/buzzvm.h>
-#include <argos3/plugins/robots/kheperaiv/simulator/kheperaiv_entity.h>
-/*#include <buzz/argos/buzz_controller_footbot.h>
-#include <buzz/argos/buzz_controller.h> */
+// #include <argos3/plugins/robots/kheperaiv/simulator/kheperaiv_entity.h>
+#include <buzz/argos/buzz_controller_footbot.h>
+#include <buzz/argos/buzz_controller.h> 
 
 #include <list>
 #include <sstream>
@@ -76,13 +76,13 @@ CColor CLocalizationLoopFunctions::GetFloorColor(const CVector2& c_position_on_p
 /****************************************/
 
 void CLocalizationLoopFunctions::PostStep() {
-  CSpace::TMapPerType kmap = GetSpace().GetEntitiesByType("kheperaiv");
+  CSpace::TMapPerType kmap = GetSpace().GetEntitiesByType("foot-bot");
   
   if (headers_output == false){
     headers_output = true;
     m_cOutput << "time_step";
     for(auto it = kmap.begin(); it != kmap.end(); ++it) {
-      std::string id = any_cast<CKheperaIVEntity*>(it->second)->GetId();
+      std::string id = any_cast<CFootBotEntity*>(it->second)->GetId();
       m_cOutput << "," << id << "_X" << "," << id << "_Y"
 		<< "," << id << "_X_EST" << "," << id << "_Y_EST"
 		<< "," << id << "_X_AVG" << "," << id << "_Y_AVG"
@@ -104,7 +104,7 @@ void CLocalizationLoopFunctions::PostStep() {
   /*m_cOutput << ", numKBots " << kmap.size(); */
   for(auto it = kmap.begin(); it != kmap.end(); ++it) {
     /* Get reference to the VM */
-    tBuzzVM = dynamic_cast<CBuzzController&>(any_cast<CKheperaIVEntity*>(it->second)->GetControllableEntity().GetController()).GetBuzzVM();
+    tBuzzVM = dynamic_cast<CBuzzController&>(any_cast<CFootBotEntity*>(it->second)->GetControllableEntity().GetController()).GetBuzzVM();
     /* Make sure no error occurred in the script */
     if(tBuzzVM->state != BUZZVM_STATE_ERROR) {
       /* Output output queue size */
